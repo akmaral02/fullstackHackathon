@@ -68,6 +68,7 @@ const TourCard = () => {
       </div>
     </Container>
   );
+
 };
 
 export default TourCard;

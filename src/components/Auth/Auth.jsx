@@ -38,6 +38,7 @@ const Auth = () => {
       </Container>
     </div>
   );
+
 };
 
 export default Auth;
