@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Frijole&display=swap");
+
+.tour_beaches {
+  background-image: url("../../../img/shifaaz-shamoon-okVXy9tG3KY-unsplash\ 2.png");
+  background-size: cover;
+  width: 100%;
+  height: 140%;
+}
+.tour_iconic {
+  background-image: url("../../../img/brandon-nelson-2smDZopBMso-unsplash\ 2.png");
+  background-size: cover;
+  width: 100%;
+  height: 140%;
+}
+.tour_mountains {
+  background-image: url("../../../img/massimiliano-morosinotto-3i5PHVp1Fkw-unsplash\ 2.png");
+  background-size: cover;
+  width: 100%;
+  height: 140%;
+}
+.tour_desert {
+  background-image: url("../../../img/david-wirzba-INPhKOKlK3c-unsplash\ 4.png");
+  background-size: cover;
+  width: 100%;
+  height: 140%;
+}
+.tour_skiing {
+  background-image: url("../../../img/matthieu-petiard-Pf6e3o0GL4M-unsplash\ 2.png");
+  background-size: cover;
+  width: 100%;
+  height: 140%;
+}
+.tour_tropic {
+  background-image: url("../../..//img/trop.png");
+  background-size: cover;
+  width: 100%;
+  height: 140%;
+}
+.tour_camping {
+  background-image: url("../../../img/josh-hild-8f_VQ3EFbTg-unsplash\ 2.png");
+  background-size: cover;
+  width: 100%;
+  height: 140%;
+}
+
+.tour_card {
+  background-color: rgb(0 0 0 / 52%);
+}
+
+.tour_card_h1 {
+  font-family: "Frijole";
+  font-weight: 700;
+  font-size: 65px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin: 0;
+  padding: 30px 0 20px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tour_card__block {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tour_card__card {
+  width: 340px;
+  height: 510px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  margin: 20px auto 40px;
+  position: relative;
+}
+
+.tour_card__card__img {
+  background-image: url("../../../img/timur-garifov-sisZWCDkmwA-unsplash\ 1.png");
+  background-size: cover;
+  height: 39%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tour_card__card__block {
+  position: absolute;
+  bottom: 0;
+  width: 93%;
+  height: 96%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 3px solid #ffffff;
+  /* filter: blur(1px); */
+  border-radius: 15px;
+  margin: 2% 2.8%;
+}
+
+.tour_card__card__down-side h6 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+.tour_card__card__down-side div span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+.tour_card__card__down-side div {
+  display: flex;
+  margin-top: 6%;
+}
+.tour_card__card__down {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12%;
+}
+.tour_card__card__down span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  color: #ffffff;
+}
+.tour_card__card_baseLine {
+  width: 87%;
+  height: 0px;
+  border: 1.3px solid #ffffff;
+  margin: 5% auto;
+}
+
+.tour_card__card__block_time {
+  display: flex;
+  justify-content: space-evenly;
+}
+.tour_card__card__time {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+}
+.flight div {
+  background-image: url("../../../img/airplane.png");
+  background-size: cover;
+  transform: rotate(32.88deg);
+  width: 30px;
+  height: 30px;
+}
+.arrived div {
+  background-image: url("../../../img/airplane.png");
+  background-size: cover;
+  transform: rotate(158.65deg);
+  width: 30px;
+  height: 30px;
+}
+
+.tour_card__card__days {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23%;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.tour_card__card_btn {
+  width: 87%;
+  margin-top: 20px;
+  height: 60px;
+  border: 2px solid white;
+  background-color: transparent;
+  border-radius: 15px;
+
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+}
