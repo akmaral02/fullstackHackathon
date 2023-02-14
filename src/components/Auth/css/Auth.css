@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+}
+.auth_background {
+  background-image: url("../../../img/lukasz-lada-q7z-AUlHPaw-unsplash.png");
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signIn {
+  width: 488px;
+  height: 573px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 3px solid #ffffff;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.signIn h6 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-top: 80px;
+}
+
+.signIn_inputs {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.signIn__email {
+  width: 70%;
+}
+.signIn__password {
+  width: 70%;
+}

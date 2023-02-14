@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+}
+.background-image {
+  background-image: url("../../img/tom-barrett-hgGplX3PFBg-unsplash\ 1.png");
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+}
+
+.categories_card_block {
+  display: flex;
+  flex-wrap: wrap;
+}
+.categories_card {
+  position: relative;
+  border: 1.5px solid #ffffff;
+  border-radius: 15px;
+  width: 149px;
+  height: 550px;
+  margin: 0 auto;
+}
+
+.B_T h6 {
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 15%;
+  margin: 0px auto 0 9px;
+}
+.beach div {
+  background-image: url("../../img/shifaaz-shamoon-okVXy9tG3KY-unsplash\ 1.png");
+  background-size: cover;
+  height: 60%;
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.iconiccities div {
+  background-image: url("../../img/brandon-nelson-2smDZopBMso-unsplash\ 1iconic_cities.png");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+}
+.I_C span {
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 43%;
+  left: -50px;
+  margin: 0 auto;
+  width: 250px;
+}
+
+.desert div {
+  background-image: url("../../img/david-wirzba-INPhKOKlK3c-desert.png");
+  background-size: cover;
+  height: 60%;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+}
+.D_S h6 {
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  transform: rotate(-90deg);
+  position: absolute;
+  bottom: 16%;
+  margin: 0 0 0 15px;
+}
+
+.mountains h6 {
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 19%;
+  margin: 0 12px 0 -16px;
+}
+.mountains div {
+  background-image: url("../../img/massimiliano-morosinotto-3i5PHVp1Fkw-unsplash\ 1.png");
+  background-size: cover;
+  height: 55%;
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.skiing div {
+  background-image: url("../../img/matthieu-petiard-Pf6e3o0GL4M-unsplash\ 1.png");
+  background-size: cover;
+  height: 60%;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+}
+
+.camping div {
+  background-image: url("../../img/josh-hild-8f_VQ3EFbTg-unsplash\ 1.png");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+}
+
+.tropic div {
+  background-image: url("../../img/roberto-nickson-ACrDPEC3CKY-unsplash\ 1.png");
+  background-size: cover;
+  height: 60%;
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.categories_span-CATEGORIES {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  padding: 40px 0 20px;
+}

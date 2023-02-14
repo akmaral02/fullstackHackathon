@@ -35,6 +35,7 @@ const MainRoutes = () => {
 
       {PrivateRoutes.map((pages) => (
         <Route path={pages.link} element={pages.element} key={pages.id} />
+
       ))}
     </Routes>
   );
