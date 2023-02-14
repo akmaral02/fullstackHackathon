@@ -1,7 +1,7 @@
 import React from "react";
 
 const TourList = () => {
-  return <div></div>;
+  return <div>kist</div>;
 };
 
 export default TourList;
