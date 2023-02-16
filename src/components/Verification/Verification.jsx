@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import "./Vetification.css";
@@ -9,7 +10,7 @@ const Verification = () => {
       <div className="background">
         <Container>
           <div className="verif_display">
-            <p className="verif_p">
+            {/* <p className="verif_p">
               We have sent a temporary verification code to chto-to@gmail.com.
               Enter the code to verify this device
             </p>
@@ -28,6 +29,25 @@ const Verification = () => {
               <div className="verif_code__blocks a"></div>
               <div className="verif_code__blocks a"></div>
             </div>
+
+            <button className="verif_btn">VERIFY</button> */}
+
+            <p className="verif_p">
+              Enter your email address to recover lost password
+            </p>
+
+            <p className="verif_codeP">Enter Email address:</p>
+
+            <TextField
+              label="Email"
+              variant="outlined"
+              color="info"
+              style={{
+                width: "400px",
+                backgroundColor: "rgba(255, 255, 255, 0.5)",
+                borderRadius: "5px",
+              }}
+            ></TextField>
 
             <button className="verif_btn">VERIFY</button>
           </div>
