@@ -12,6 +12,8 @@ import SkiingPage from "./pages/tourPages/SkiingPage";
 import TropicPage from "./pages/tourPages/TropicPage";
 import MyToursPage from "./pages/MyToursPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Verification from "./components/Verification/Verification";
+import VerificationPage from "./pages/VerificationPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -35,6 +37,7 @@ const MainRoutes = () => {
     { link: "/auth", element: <AuthPage />, id: 10 },
     { link: "/mytours", element: <MyToursPage />, id: 11 },
     { link: "*", element: <NotFoundPage />, id: 12 },
+    { link: "/verif", element: <VerificationPage />, id: 13 },
   ];
 
   return (
