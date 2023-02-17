@@ -22,22 +22,13 @@ const Cart = () => {
         <div>
           <div>
             <div className="cart_tour_img">
-              <div
-                style={{
-                  padding: "20px 0 0",
-                  margin: "0 0 0 50px",
-                }}
-              >
+              <div className="cart_tour_img__block">
                 <div className="cart_tour_data">
                   <span>25.04.2023 - 02.04.2023</span>
                 </div>
                 <h6 className="cart_tour_place">BISHKEK - TURKEY</h6>
 
-                <div
-                  style={{
-                    margin: "30px 0 0",
-                  }}
-                >
+                <div className="cart_tour_block_turist">
                   <span className="cart_tour_turist">
                     Turists:
                     <AddCircleOutlineIcon
@@ -76,22 +67,13 @@ const Cart = () => {
 
         <div>
           <div className="cart_tour_img">
-            <div
-              style={{
-                padding: "20px 0 0",
-                margin: "0 0 0 50px",
-              }}
-            >
+            <div className="cart_tour_img__block">
               <div className="cart_tour_data">
                 <span>25.04.2023 - 02.04.2023</span>
               </div>
               <h6 className="cart_tour_place">BISHKEK - TURKEY</h6>
 
-              <div
-                style={{
-                  margin: "30px 0 0",
-                }}
-              >
+              <div className="cart_tour_block_turist">
                 <span className="cart_tour_turist">
                   Turists:
                   <AddCircleOutlineIcon
@@ -100,17 +82,11 @@ const Cart = () => {
                       margin: " 0 0 -5px 5px",
                     }}
                   ></AddCircleOutlineIcon>
-                  <span
-                    style={{
-                      margin: "0 10px",
-                    }}
-                  >
-                    1
-                  </span>
+                  <span>1</span>
                   <RemoveCircleOutlineIcon
                     fontSize="small"
                     style={{
-                      margin: "0 0 -5px ",
+                      margin: " 0 0 -5px 5px",
                     }}
                   ></RemoveCircleOutlineIcon>
                 </span>

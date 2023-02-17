@@ -53,11 +53,16 @@
 .cart_tour_data span {
   font-family: "Montserrat";
   font-weight: 450;
-  font-size: 16px;
+  font-size: 1.2vw;
   color: #ffffff;
 }
 .cart_tour_data {
   margin: 20px 0 0;
+}
+
+.cart_tour_img__block {
+  margin: 0 0 50px;
+  padding: 20px 0 0;
 }
 
 .cart_tour_place {
@@ -67,16 +72,20 @@
   color: #ffffff;
   margin: 0;
 }
+.cart_tour_block_turist {
+  margin: 30px 0 0;
+}
 .cart_tour_turist {
   font-family: "Montserrat";
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.4vw;
   color: #ffffff;
 }
 .cart_tour_turist span {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.2vw;
   color: #ffffff;
+  margin: 0 10px;
 }
 .cart_tour_lineIMG {
   background-image: url("../../img/Rectangle\ 1340.png");
@@ -163,4 +172,63 @@
 .cart_block_continue_boy {
   display: flex;
   justify-content: space-around;
+}
+
+@media (max-width: 1100px) {
+  .cart_tour_data {
+    margin: 10px 0 0 0;
+  }
+
+  .cart_tour_lineIMG h6 {
+    padding: 70px 0 0 60px;
+  }
+}
+
+@media (max-width: 968px) {
+  .cart_tour_data {
+    margin: 10px 0 0 0;
+  }
+
+  .cart_tour_img__block {
+    margin: 0 0 30px;
+    padding: 1px 0 0;
+  }
+}
+@media (max-width: 800px) {
+  .cart_tour_data {
+    margin: 10px 0 0 0;
+  }
+  .cart_tour_block_turist {
+    margin: 15px 0 0;
+  }
+
+  .cart_tour_lineIMG h6 {
+    padding: 50px 0 0 50px;
+  }
+  .cart_tour_turist span {
+    margin: 0 5px;
+  }
+}
+@media (max-width: 600px) {
+  .cart_tour_lineIMG h6 {
+    padding: 40px 0 0 40px;
+  }
+  .cart_tour_block_turist {
+    margin: 10px 0 0;
+  }
+  .cart_tour_block_turist {
+    margin: 0 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart_tour_lineIMG h6 {
+    padding: 30px 0 0 30px;
+  }
+  .cart_tour_block_turist {
+    margin: 10px 0 0;
+  }
+  .cart_tour_block_turist {
+    margin: 0 0 0;
+  }
 }
