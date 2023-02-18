@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Categories from "./components/Categories/Categories";
 import AdminPage from "./pages/AdminPage";
 import AuthPage from "./pages/AuthPage";
 import ContactUsPage from "./pages/ContactUsPage";
@@ -10,22 +11,25 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PaymentFormPage from "./pages/PaymentFormPage";
 import TourDetailPage from "./pages/TourDetailPage";
 import ToursPage from "./pages/ToursPage";
+import VerificationPage from "./pages/VerificationPage";
 
 const MainRoutes = () => {
   const PublickRoutes = [
     { link: "/", element: <HomePage />, id: 1 },
     { link: "/auth", element: <AuthPage />, id: 2 },
-    { link: "/tours", element: <ToursPage />, id: 3 },
-    { link: "/tours/:id", element: <TourDetailPage />, id: 4 },
-    { link: "/mytours", element: <MyToursPage />, id: 5 },
-    { link: "/contactus", element: <ContactUsPage />, id: 6 },
-    { link: "/paymentform", element: <PaymentFormPage />, id: 7 },
-    { link: "*", element: <NotFoundPage />, id: 8 },
+    { link: "/verif", element: <VerificationPage />, id: 3 },
+    { link: "/tours", element: <ToursPage />, id: 4 },
+    { link: "/tours/:id", element: <TourDetailPage />, id: 5 },
+    { link: "/mytours", element: <MyToursPage />, id: 6 },
+    { link: "/contactus", element: <ContactUsPage />, id: 7 },
+    { link: "/paymentform", element: <PaymentFormPage />, id: 8 },
+    { link: "*", element: <NotFoundPage />, id: 9 },
   ];
 
   const PrivateRoutes = [
-    { link: "/admin", element: <AdminPage />, id: 9 },
-    { link: "/edit/:id", element: <EditTourPage />, id: 10 },
+    { link: "/admin", element: <AdminPage />, id: 10 },
+    { link: "/edit/:id", element: <EditTourPage />, id: 11 },
+    { link: "/categories", element: <Categories />, id: 12 },
   ];
   return (
     <Routes>
@@ -35,7 +39,6 @@ const MainRoutes = () => {
 
       {PrivateRoutes.map((pages) => (
         <Route path={pages.link} element={pages.element} key={pages.id} />
-
       ))}
     </Routes>
   );
