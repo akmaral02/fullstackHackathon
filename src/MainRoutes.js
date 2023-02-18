@@ -1,44 +1,91 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import AdminPage from "./pages/AdminPage";
-import AuthPage from "./pages/AuthPage";
-import ContactUsPage from "./pages/ContactUsPage";
-import EditTourPage from "./pages/EditTourPage";
 import HomePage from "./pages/HomePage";
+import AuthPage from "./pages/AuthPage";
+import CategoriesPage from "./pages/CategoriesPage";
+import BeachesPage from "./pages/tourPages/BeachesPage";
+import CampingPage from "./pages/tourPages/CampingPage";
+import DesertPage from "./pages/tourPages/DesertPage";
+import IconicCitiesPage from "./pages/tourPages/IconicCitiesPage";
+import MountainsPage from "./pages/tourPages/MountainsPage";
+import SkiingPage from "./pages/tourPages/SkiingPage";
+import TropicPage from "./pages/tourPages/TropicPage";
 import MyToursPage from "./pages/MyToursPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import PaymentFormPage from "./pages/PaymentFormPage";
-import TourDetailPage from "./pages/TourDetailPage";
-import ToursPage from "./pages/ToursPage";
+import Verification from "./components/Verification/Verification";
+import VerificationPage from "./pages/VerificationPage";
+import CartPage from "./pages/CartPage";
 
 const MainRoutes = () => {
-  const PublickRoutes = [
-    { link: "/", element: <HomePage />, id: 1 },
-    { link: "/auth", element: <AuthPage />, id: 2 },
-    { link: "/tours", element: <ToursPage />, id: 3 },
-    { link: "/tours/:id", element: <TourDetailPage />, id: 4 },
-    { link: "/mytours", element: <MyToursPage />, id: 5 },
-    { link: "/contactus", element: <ContactUsPage />, id: 6 },
-    { link: "/paymentform", element: <PaymentFormPage />, id: 7 },
-    { link: "*", element: <NotFoundPage />, id: 8 },
+  const PUBLIC_ROUTES = [
+    { link: "/category", element: <CategoriesPage />, id: 1 },
+    { link: "/category/beach", element: <BeachesPage />, id: 2 },
+    {
+      link: "/category/iconic_cities",
+      element: <IconicCitiesPage />,
+      id: 3,
+    },
+    {
+      link: "/category/mountains",
+      element: <MountainsPage />,
+      id: 4,
+    },
+    { link: "/category/desert", element: <DesertPage />, id: 5 },
+    { link: "/category/skiing", element: <SkiingPage />, id: 6 },
+    { link: "/category/tropic", element: <TropicPage />, id: 7 },
+    { link: "/category/camping", element: <CampingPage />, id: 8 },
+    { link: "/", element: <HomePage />, id: 9 },
+    { link: "/auth", element: <AuthPage />, id: 10 },
+    { link: "/mytours", element: <MyToursPage />, id: 11 },
+    { link: "*", element: <NotFoundPage />, id: 12 },
+    { link: "/verif", element: <VerificationPage />, id: 13 },
+    { link: "/cart", element: <CartPage />, id: 14 },
   ];
 
-  const PrivateRoutes = [
-    { link: "/admin", element: <AdminPage />, id: 9 },
-    { link: "/edit/:id", element: <EditTourPage />, id: 10 },
-  ];
   return (
     <Routes>
-      {PublickRoutes.map((pages) => (
-        <Route path={pages.link} element={pages.element} key={pages.id} />
-      ))}
-
-      {PrivateRoutes.map((pages) => (
-        <Route path={pages.link} element={pages.element} key={pages.id} />
-
+      {PUBLIC_ROUTES.map((item) => (
+        <Route path={item.link} element={item.element} key={item.id} />
       ))}
     </Routes>
   );
 };
 
 export default MainRoutes;
+
+//
+
+//
+
+//
+
+// import AdminPage from "./pages/AdminPage";
+// import ContactUsPage from "./pages/ContactUsPage";
+// import EditTourPage from "./pages/EditTourPage";
+// import ToursPage from "./pages/ToursPage";
+// import PaymentFormPage from "./pages/PaymentFormPage";
+// import TourDetailPage from "./pages/TourDetailPage";
+
+// const PublickRoutes = [
+//   { link: "/tours", element: <ToursPage />, id: 3 },
+//   { link: "/tours/:id", element: <TourDetailPage />, id: 4 },
+//   { link: "/contactus", element: <ContactUsPage />, id: 6 },
+//   { link: "/paymentform", element: <PaymentFormPage />, id: 7 },
+// ];
+
+// const PrivateRoutes = [
+//   { link: "/admin", element: <AdminPage />, id: 9 },
+//   { link: "/edit/:id", element: <EditTourPage />, id: 10 },
+// ];
+// return (
+//   <Routes>
+//     {PublickRoutes.map((pages) => (
+//       <Route path={pages.link} element={pages.element} key={pages.id} />
+//     ))}
+
+//     {PrivateRoutes.map((pages) => (
+//       <Route path={pages.link} element={pages.element} key={pages.id} />
+
+//     ))}
+//   </Routes>
+// );

@@ -1,21 +1,20 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
+import { styled } from "@mui/material/styles";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import { Button } from "@mui/material";
-import AdbIcon from "@mui/icons-material/Adb";
-import Logo from "../../images/logo.png";
-import Image from "mui-image";
+import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  ImageList,
+  InputBase,
+  Typography,
+  IconButton,
+  Toolbar,
+  Box,
+  AppBar,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import Logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
@@ -153,8 +152,8 @@ export default function Navbar() {
         <AppBar
           position="static"
           sx={{
-            backgroundColor: "transparent",
-            boxShadow: "none",
+            background: "#5E4040",
+            boxShadow: "inset 0px -10px 100px rgba(255, 255, 255, 0.80)",
           }}
         >
           <Toolbar>
@@ -170,7 +169,7 @@ export default function Navbar() {
             </IconButton>
             <Box flexGrow={3}>
               <Link to={"/"}>
-                <Image src={Logo} height={48} width={89} />
+                <ImageList src={Logo} height={48} width={89} />
               </Link>
             </Box>
             <Box flexGrow={15} alignContent={"center"}>
