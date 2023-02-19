@@ -4,7 +4,7 @@ import Verification from "../components/Verification/Verification";
 const VerificationPage = () => {
   return (
     <div>
-      <Verification></Verification>
+      <Verification />
     </div>
   );
 };

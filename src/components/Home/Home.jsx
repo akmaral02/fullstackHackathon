@@ -65,7 +65,7 @@ const Home = () => {
               }}
             >
               <span className="home_center_under__span">
-                TEST THE WORLD WITH <div></div>
+                TASTE THE WORLD WITH <div></div>
               </span>
               <div className="home_center_under__discription">
                 <p

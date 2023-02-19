@@ -1,8 +1,8 @@
 .background {
-  background-image: url("../../img/333\ 1.png");
+  background-image: url("/src/images/333\ 1.png");
   background-size: cover;
   width: 100%;
-  height: 600px;
+  height: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,7 @@
   font-size: 2.4vw;
   color: #ffffff;
   width: 66%;
+  text-align: center;
 }
 .verif_codeP {
   font-family: "Montserrat";
