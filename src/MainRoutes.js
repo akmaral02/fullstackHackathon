@@ -22,6 +22,7 @@ import ToursPage from "./pages/ToursPage";
 import VerificationPage from "./pages/VerificationPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import CartPage from "./pages/CartPage";
+import GalleryPage from "./pages/GalleryPage";
 
 const MainRoutes = () => {
   const PublickRoutes = [
@@ -34,6 +35,7 @@ const MainRoutes = () => {
     { link: "/contactus", element: <ContactUsPage />, id: 7 },
     { link: "/paymentform", element: <PaymentFormPage />, id: 8 },
     { link: "*", element: <NotFoundPage />, id: 9 },
+    { link: "/gallery", element: <GalleryPage />, id: 13 },
   ];
 
   const PrivateRoutes = [

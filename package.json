@@ -18,7 +18,11 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "date-fns": "^2.29.3",
+    "dayjs": "^1.11.7",
+    "@mui/x-date-pickers": "^5.0.19",
+    "@mui/x-date-pickers-pro": "^5.0.19"
   },
   "scripts": {
     "start": "react-scripts start",

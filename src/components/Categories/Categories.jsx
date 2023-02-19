@@ -13,7 +13,6 @@ const Categories = () => {
           <span className="categories_span-CATEGORIES">CATEGORIES</span>
 
           <div className="categories_card_block">
-            {/*  */}
             <div
               className="categories_card beach B_T"
               onClick={() => navigate("/category/beach")}
