@@ -20,15 +20,17 @@ import PaymentFormPage from "./pages/PaymentFormPage";
 import TourDetailPage from "./pages/TourDetailPage";
 import ToursPage from "./pages/ToursPage";
 import VerificationPage from "./pages/VerificationPage";
+import CategoriesPage from "./pages/CategoriesPage";
+import CartPage from "./pages/CartPage";
 
 const MainRoutes = () => {
   const PublickRoutes = [
     { link: "/", element: <HomePage />, id: 1 },
     { link: "/auth", element: <AuthPage />, id: 2 },
     { link: "/verif", element: <VerificationPage />, id: 3 },
-    { link: "/tours", element: <ToursPage />, id: 4 },
+    { link: "/tours", element: <CategoriesPage />, id: 4 },
     { link: "/tours/:id", element: <TourDetailPage />, id: 5 },
-    { link: "/mytours", element: <MyToursPage />, id: 6 },
+    { link: "/mytours", element: <CartPage />, id: 6 },
     { link: "/contactus", element: <ContactUsPage />, id: 7 },
     { link: "/paymentform", element: <PaymentFormPage />, id: 8 },
     { link: "*", element: <NotFoundPage />, id: 9 },

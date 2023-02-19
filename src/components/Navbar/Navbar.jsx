@@ -14,12 +14,13 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import Logo from "../../img/logo.png";
+import Logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import CallIcon from "@mui/icons-material/Call";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import Image from "mui-image";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -169,7 +170,7 @@ export default function Navbar() {
             </IconButton>
             <Box flexGrow={3}>
               <Link to={"/"}>
-                <ImageList src={Logo} height={48} width={89} />
+                <Image src={Logo} height={48} width={89} />
               </Link>
             </Box>
             <Box flexGrow={15} alignContent={"center"}>
@@ -243,6 +244,8 @@ export default function Navbar() {
             >
               {
                 <Link className="links" to={"/auth"}>
+                  {" "}
+                  {/* //! before was auth */}
                   <IconButton
                     size="large"
                     edge="end"

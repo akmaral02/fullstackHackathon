@@ -9,6 +9,7 @@ export const useAuth = () => useContext(authContext);
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
   //! FUN-ON FOR REGISTER
@@ -20,7 +21,8 @@ const AuthContextProvider = ({ children }) => {
       form.append("password", formData.password);
       form.append("password_confirm", formData.password_confirm);
       const res = await axios.post(`${API_AUTH}register/`, formData);
-      // console.log(res.data);
+      setSuccess(res.data);
+      console.log(res.data);
       // navigate("/login"); //! над что то придумать
     } catch (error) {
       console.log(error);
@@ -57,7 +59,7 @@ const AuthContextProvider = ({ children }) => {
   const checkAuth = async () => {
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      let res = await axios.post(`${API_AUTH}/active`, {
+      let res = await axios.post(`${API_AUTH}refresh/`, {
         refresh: token.refresh, // check the key
       });
       localStorage.setItem(
@@ -67,8 +69,8 @@ const AuthContextProvider = ({ children }) => {
       let user = localStorage.getItem("username");
       setUser(user);
     } catch (error) {
-      console.log(error);
-      setError(error);
+      // console.log(error);
+      setError(error.response.data.email[0]);
     }
   };
 
@@ -146,6 +148,7 @@ const AuthContextProvider = ({ children }) => {
     logout,
     forgotPassword,
     forgotPasswordComplete,
+    success,
     // changeOldPassword,
   };
   return <authContext.Provider value={value}>{children}</authContext.Provider>;

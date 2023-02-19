@@ -1,8 +1,8 @@
 import {
-  Alert,
   Box,
   Button,
   Dialog,
+  Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
@@ -12,6 +12,7 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 import "./css/Auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import MuiAlert from "@mui/material/Alert";
 
 //! modal
 
@@ -29,8 +30,13 @@ const style = {
 };
 //!
 
+//? snack
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+//?
 const Auth = () => {
-  const { register, login, error, changeOldPassword } = useAuth();
+  const { register, login, error, changeOldPassword, success } = useAuth();
 
   //! modal
   // const [open, setOpen] = useState(false);
@@ -61,7 +67,27 @@ const Auth = () => {
 
   const navigate = useNavigate();
 
+  //! snackbar
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+  const { vertical, horizontal, open } = state;
+
+  const handleClick = () => {};
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setState({ open: false, ...state });
+  };
+  //!
+
   const [alert, setAlert] = useState("none");
+  const [alertForSuccess, setAlertForSuccess] = useState("none");
 
   const [isSignUp, setSignUp] = useState(false);
   const [inputs, setInputs] = useState({
@@ -102,7 +128,10 @@ const Auth = () => {
       return;
     }
     isSignUp ? register(formData) : login(formData, inputs.email);
-    alert(error.response.data.email[0]);
+    // register ? setAlertForSuccess("flex") : console.log(error);
+    register ? setState({ open: true, ...state }) : console.log(error);
+    // alert(error.response.data.email);
+    // error ? setAlertForSuccess("flex") : navigate("/");
   };
 
   return (
@@ -161,6 +190,20 @@ const Auth = () => {
           Passwords do not match
         </Alert>
         <div className="form-box" onSubmit={handleSubmit}>
+          <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+            <Alert
+              // severity={error ? "error" : "success"}
+              onClose={handleClose}
+              severity="success"
+              sx={{
+                justifyContent: "center",
+                fontSize: 20,
+              }}
+            >
+              {success}
+              {/* {error ? { error } : { success }} */}
+            </Alert>
+          </Snackbar>
           <div className="form-value">
             <form action="">
               <h2> {isSignUp ? "SIGN UP" : "LOGIN"}</h2>

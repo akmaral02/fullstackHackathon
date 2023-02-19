@@ -2,7 +2,7 @@ import { Box, TextField } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContextProvider";
-import "./Vetification.css";
+import "./Verificaton.css";
 
 export const ver = false;
 const Verification = () => {
