@@ -5,57 +5,59 @@ import "./Home.css";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TelegramIcon from "@mui/icons-material/Telegram";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
+import bg from "./slider1.mp4";
 
 const Home = () => {
   return (
     <>
-      <div className="home">
-        <Container>
-          <Box className="home_center_block">
-            <button className="home_center__btn-book">BOOK</button>
-
-            <h6>FIND YOUR NEXT STAY</h6>
-
-            <div className="home_center_block__inBlock">
-              <CalendarTodayIcon
-                className="calendar"
-                sx={{
-                  color: "white",
-                  width: "2vw",
-                  height: "2vw",
-                }}
-              ></CalendarTodayIcon>
-              <span>Check in</span>
-
-              <span className="home_center_block__inBlock-line"></span>
-
-              <CalendarTodayIcon
-                className="calendar"
-                sx={{
-                  color: "white",
-                  width: "2vw",
-                  height: "2vw",
-                }}
-              ></CalendarTodayIcon>
-              <span>Check out</span>
-
-              <span className="home_center_block__inBlock-line"></span>
-
-              <PersonAddAlt1Icon
-                className="calendar"
-                sx={{
-                  color: "white",
-                  width: "2vw",
-                  height: "2vw",
-                }}
-              ></PersonAddAlt1Icon>
-              <span>abluts</span>
-            </div>
-          </Box>
-        </Container>
-      </div>
+      <Box className="home">
+        <video className="video-slide" src={bg} autoPlay muted loop></video>
+        <Box className="content">
+          <h1>
+            FLY HIGH
+            <br />
+            <span>TO THE WORLD!</span>
+          </h1>
+          <Typography>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
+            temporibus iure odit, similique fugiat corrupti debitis labore cum?
+            Omnis, non?
+          </Typography>
+          <a href="#">Book Travel</a>
+        </Box>
+        <Box className="media-icons">
+          <IconButton
+            className="media-icons"
+            sx={{
+              color: "white",
+              ":hover": { transform: "scale(1.3)" },
+              transition: "0.3s ease",
+            }}
+          >
+            <FacebookIcon />
+          </IconButton>
+          <IconButton
+            className="media-icons"
+            sx={{
+              color: "white",
+              ":hover": { transform: "scale(1.3)" },
+              transition: "0.3s ease",
+            }}
+          >
+            <InstagramIcon />
+          </IconButton>
+          <IconButton
+            className="media-icons"
+            sx={{
+              color: "white",
+              ":hover": { transform: "scale(1.3)" },
+              transition: "0.3s ease",
+            }}
+          >
+            <TelegramIcon />
+          </IconButton>
+        </Box>
+      </Box>
       <div className="home_center_under">
         <Container>
           <div className="home_center_under_block">
@@ -65,7 +67,7 @@ const Home = () => {
               }}
             >
               <span className="home_center_under__span">
-                TASTE THE WORLD WITH <div></div>
+                TASTE THE WORLD <div></div>
               </span>
               <div className="home_center_under__discription">
                 <p
@@ -77,6 +79,8 @@ const Home = () => {
                   holidays, which will be selected especially for you. Lorem
                   ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
                   dolor sit amet, consectetur adipiscing elit. Vestibulum
+                  interdum convallis sapien, ac malesuada ante auctor vel. Lorem
+                  ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
                   interdum convallis sapien, ac malesuada ante auctor vel.
                 </p>
               </div>
@@ -115,7 +119,6 @@ const Home = () => {
             <Grid
               container
               sx={{
-                // backgroundColor: "black",
                 paddingLeft: 10,
                 paddingRight: 10,
                 marginBottom: "90px",
@@ -230,6 +233,9 @@ const Home = () => {
       <div className="home_under_line"></div>
 
       <div className="home_contactus">
+        <Box className="cont_video">
+          {/* <video src={contactus} autoPlay muted loop></video> */}
+        </Box>
         <Container
           sx={{
             display: "flex",
@@ -254,30 +260,30 @@ const Home = () => {
           }}
         >
           <TextField
-            id="filled-basic"
+            id="outlined-basic"
             label="First Name"
-            variant="filled"
+            variant="outlined"
             className="home_under_inputs_name s"
           />
           <TextField
-            id="filled-basic"
+            id="outlined-basic"
             label="Last Name"
-            variant="filled"
+            variant="outlined"
             className="home_under_inputs_name"
           />
         </div>
         <TextField
-          id="filled-basic"
+          id="outlined-basic"
           label="Email"
-          variant="filled"
+          variant="outlined"
           className="home_under_inputs_email"
         />
         <div>
           <div>
             <TextField
-              id="filled-basic"
-              label="Meassage"
-              variant="filled"
+              id="outlined-basic"
+              label="Message"
+              variant="outlined"
               multiline
               rows={5}
               className="home_under_inputs_massage"
@@ -290,107 +296,11 @@ const Home = () => {
               marginTop: "15px",
             }}
           >
-            <Button variant="contained">Contained</Button>
+            <Button variant="outlined">Send</Button>
           </div>
+          <Box className="" sx={{ pb: 5 }}></Box>
         </div>
       </Container>
-      <div className="footer">
-        <Container>
-          <div className="footer_inside">
-            <div>
-              <div>
-                <span className="FLY_HIGH">
-                  FLY HIGH <div></div>
-                </span>
-              </div>
-              <div>
-                <p className="footer_under_text fontsize1_4">
-                  We create
-                  <br /> possibilities for the
-                  <br /> connected world
-                </p>
-              </div>
-            </div>
-
-            <div className="footer_inside__center">
-              <span className="footer_span">Expolre</span>
-              <ul className="footer_inside__ul">
-                <li className="footer_inside__ul__li">
-                  <a href="#" className="fontsize1_4">
-                    Home
-                  </a>
-                </li>
-                <li className="footer_inside__ul__li">
-                  <a href="#" className="fontsize1_4">
-                    Book
-                  </a>
-                </li>
-                <li className="footer_inside__ul__li">
-                  <a href="#" className="fontsize1_4">
-                    Packages
-                  </a>
-                </li>
-                <li className="footer_inside__ul__li">
-                  <a href="#" className="fontsize1_4">
-                    Services
-                  </a>
-                </li>
-                <li className="footer_inside__ul__li">
-                  <a href="#" className="fontsize1_4">
-                    Gallery
-                  </a>
-                </li>
-                <li className="footer_inside__ul__li">
-                  <a href="#" className="fontsize1_4">
-                    About
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="footer_inside__end">
-              <span className="footer_span">Visit</span>
-              <br />
-              <p className="footer_inside__end__p fontsize1_4">
-                USA, New York, Bolter 44
-                <br /> Argentina, Buenos Aires St. 21/3
-                <br /> Egypt, Kair St. 55/7
-              </p>
-              <div>
-                <IconButton className="home_center_iconInsta">
-                  <InstagramIcon
-                    sx={{
-                      color: "white",
-                      width: "1.7vw",
-                      height: "1.7vw",
-                    }}
-                  ></InstagramIcon>
-                </IconButton>
-
-                <IconButton>
-                  <FacebookIcon
-                    sx={{
-                      color: "white",
-                      width: "1.7vw",
-                      height: "1.7vw",
-                    }}
-                  ></FacebookIcon>
-                </IconButton>
-
-                <IconButton>
-                  <TelegramIcon
-                    sx={{
-                      color: "white",
-                      width: "1.7vw",
-                      height: "1.7vw",
-                    }}
-                  ></TelegramIcon>
-                </IconButton>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </div>
     </>
   );
 };
