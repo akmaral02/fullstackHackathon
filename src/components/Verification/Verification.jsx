@@ -19,15 +19,15 @@ const Verification = () => {
 
             <div className="verif_code_Ablock">
               <div className="verif_code__blocks"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
-              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
+              <div className="verif_code__blocks j"></div>
             </div>
 
             <button className="verif_btn">VERIFY</button> */}

@@ -15,6 +15,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Verification from "./components/Verification/Verification";
 import VerificationPage from "./pages/VerificationPage";
 import CartPage from "./pages/CartPage";
+import TourDetailPage from "./pages/TourDetailPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -40,6 +41,7 @@ const MainRoutes = () => {
     { link: "*", element: <NotFoundPage />, id: 12 },
     { link: "/verif", element: <VerificationPage />, id: 13 },
     { link: "/cart", element: <CartPage />, id: 14 },
+    { link: "/detail", element: <TourDetailPage />, id: 14 },
   ];
 
   return (
