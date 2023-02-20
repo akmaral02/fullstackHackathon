@@ -1,0 +1,40 @@
+.inputs {
+  position: relative;
+  /* width: 310px; */
+  border-radius: 15px;
+  background-color: #fff;
+  display: flex;
+}
+
+.inputs label {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  transform: translateY(-50%);
+  color: #1c4d63;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -10px;
+}
+
+.inputs input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 20px;
+  color: #1c4d63;
+}
+
+.inputs-white {
+  background-color: #fff;
+  border-radius: 5px;
+  border-color: aqua;
+}
