@@ -34,7 +34,7 @@ const ToursContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initState);
   const navigate = useNavigate();
 
-  //! FUNC-ON FOR GETTINF TOURS DATA FROM API
+  //! FUNC-ON FOR GETTING TOURS DATA FROM API
   const getTours = async () => {
     try {
       let config = getToken();

@@ -68,12 +68,8 @@ const Auth = () => {
   const navigate = useNavigate();
 
   //! snackbar
-  const [state, setState] = React.useState({
-    open: false,
-    vertical: "top",
-    horizontal: "center",
-  });
-  const { vertical, horizontal, open } = state;
+  const [open, setOpen] = useState(false);
+  const [openE, setOpenE] = useState(false);
 
   const handleClick = () => {};
 
@@ -82,7 +78,8 @@ const Auth = () => {
       return;
     }
 
-    setState({ open: false, ...state });
+    setOpen(false);
+    setOpenE(false);
   };
   //!
 
@@ -128,8 +125,12 @@ const Auth = () => {
       return;
     }
     isSignUp ? register(formData) : login(formData, inputs.email);
-    // register ? setAlertForSuccess("flex") : console.log(error);
-    register ? setState({ open: true, ...state }) : console.log(error);
+    if (register) {
+      setOpen(true);
+      return;
+    }
+    // register ? setOpenE(true) : setOpen(true);
+    // register ? setState({ open: true, ...state }) : console.log(error);
     // alert(error.response.data.email);
     // error ? setAlertForSuccess("flex") : navigate("/");
   };
@@ -183,28 +184,65 @@ const Auth = () => {
 
       {/* //! */}
       <div className="section">
-        <Alert
-          severity="error"
-          sx={{ display: alert, justifyContent: "center", fontSize: 20 }}
-        >
-          Passwords do not match
-        </Alert>
         <div className="form-box" onSubmit={handleSubmit}>
-          <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
-            <Alert
-              // severity={error ? "error" : "success"}
+          {/* {error ? (
+            <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+              <Alert
+                // severity={error ? "error" : "success"}
+                onClose={handleClose}
+                severity="success"
+                sx={{
+                  justifyContent: "center",
+                  fontSize: 20,
+                }}
+              >
+                {success}
+              </Alert>
+            </Snackbar>
+          ) : (
+            <Snackbar
+              open={openE}
+              autoHideDuration={1000}
               onClose={handleClose}
-              severity="success"
-              sx={{
-                justifyContent: "center",
-                fontSize: 20,
-              }}
             >
-              {success}
-              {/* {error ? { error } : { success }} */}
-            </Alert>
-          </Snackbar>
+              <Alert
+                // severity={error ? "error" : "success"}
+                onClose={handleClose}
+                severity="error"
+                sx={{
+                  justifyContent: "center",
+                  fontSize: 20,
+                }}
+              >
+                {error}
+
+                {error ? { error } : { success }}
+              </Alert>
+            </Snackbar>
+          )} */}
+
+          {open !== null && (
+            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity={error ? "error" : "success"}
+                sx={{
+                  justifyContent: "center",
+                  fontSize: 20,
+                }}
+              >
+                {error ? error : success}
+              </Alert>
+            </Snackbar>
+          )}
+
           <div className="form-value">
+            <Alert
+              severity="error"
+              sx={{ display: alert, justifyContent: "center", fontSize: 20 }}
+            >
+              Passwords do not match
+            </Alert>
             <form action="">
               <h2> {isSignUp ? "SIGN UP" : "LOGIN"}</h2>
               <div className="inputbox">

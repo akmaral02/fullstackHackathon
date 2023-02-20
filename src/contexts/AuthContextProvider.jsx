@@ -22,11 +22,11 @@ const AuthContextProvider = ({ children }) => {
       form.append("password_confirm", formData.password_confirm);
       const res = await axios.post(`${API_AUTH}register/`, formData);
       setSuccess(res.data);
-      console.log(res.data);
+      // console.log(res.data);
       // navigate("/login"); //! над что то придумать
     } catch (error) {
-      console.log(error);
-      setError(error);
+      // console.log(error);
+      setError(error.response.data.email[0]);
     }
   };
 
@@ -46,9 +46,12 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("username", email);
       setUser(email);
       navigate("/");
+      // console.log(res);
+      // console.log(user);
+      setSuccess("Success");
     } catch (error) {
-      console.log(error);
-      setError(error);
+      // console.log(error);
+      setError(error.response.data.detail);
     }
   };
 
@@ -91,7 +94,7 @@ const AuthContextProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     setUser("");
-    navigate("/login");
+    navigate("/auth");
   };
 
   //? END FUN-ON FOR LOGOUT

@@ -5,12 +5,12 @@
   text-decoration: none;
 }
 
-.nav {
+/* .nav {
   font-family: "Montserrat";
   font-weight: 600;
   font-size: 20px;
   letter-spacing: 0.05rem;
-}
+} */
 
 .nav::after {
   content: "";
