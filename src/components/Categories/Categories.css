@@ -21,9 +21,9 @@ body {
   margin: 10px auto;
 }
 
-.B_T h6 {
+.B_T span {
   font-weight: 500;
-  font-size: 30px;
+  font-size: 2.2vw;
   letter-spacing: 0.05em;
   color: #ffffff;
   transform: rotate(-90deg);
@@ -31,6 +31,7 @@ body {
   top: 15%;
   margin: 0px auto 0 9px;
 }
+
 .beach div {
   background-image: url("../../img/shifaaz-shamoon-okVXy9tG3KY-unsplash\ 1.png");
   background-size: cover;
@@ -41,6 +42,27 @@ body {
   bottom: 0;
 }
 
+.beach:hover div {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url("../../img/shifaaz-shamoon-okVXy9tG3KY-unsplash\ 1.png");
+  filter: blur(2px);
+  animation: widht 0.3s linear;
+}
+.beach:hover span {
+  top: 45%;
+  left: -10%;
+  font-weight: 500;
+  font-size: 2.7vw;
+  letter-spacing: 0.1em;
+  text-align: center;
+  animation: span 0.3s linear;
+}
+
 .iconiccities div {
   background-image: url("../../img/brandon-nelson-2smDZopBMso-unsplash\ 1iconic_cities.png");
   background-size: cover;
@@ -49,9 +71,42 @@ body {
   border-radius: 15px;
   position: absolute;
 }
-.I_C span {
+.iconiccities:hover div {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url("../../img/brandon-nelson-2smDZopBMso-unsplash\ 1iconic_cities.png");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+}
+.iconiccities:hover span {
   font-weight: 500;
-  font-size: 30px;
+  font-size: 2.7vw;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2.5vw;
+  width: 280px;
+  position: absolute;
+  top: 43%;
+  left: -55px;
+}
+.iconiccities span {
+  font-weight: 500;
+  font-size: 2.2vw;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 43%;
+  left: -50px;
+  margin: 0 auto;
+  width: 250px;
+}
+.camping span {
+  font-weight: 500;
+  font-size: 2.2vw;
   letter-spacing: 0.05em;
   color: #ffffff;
   transform: rotate(-90deg);
@@ -71,9 +126,9 @@ body {
   position: absolute;
   top: 0;
 }
-.D_S h6 {
+.D_S span {
   font-weight: 500;
-  font-size: 30px;
+  font-size: 2.2vw;
   letter-spacing: 0.05em;
   color: #ffffff;
   transform: rotate(-90deg);
@@ -81,10 +136,31 @@ body {
   bottom: 16%;
   margin: 0 0 0 15px;
 }
-
-.mountains h6 {
+.desert:hover div {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url("../../img/david-wirzba-INPhKOKlK3c-desert.png");
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  animation: desert 0.3s linear;
+}
+.desert:hover span {
+  top: 30%;
+  right: -80%;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 2.7vw;
+  letter-spacing: 0.1em;
+  text-align: center;
+  animation: spanDes 0.3s linear;
+}
+
+.mountains span {
+  font-weight: 500;
+  font-size: 2.2vw;
   letter-spacing: 0.05em;
   color: #ffffff;
   transform: rotate(-90deg);
@@ -101,6 +177,27 @@ body {
   position: absolute;
   bottom: 0;
 }
+.mountains:hover div {
+  height: 90%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url("../../img/massimiliano-morosinotto-3i5PHVp1Fkw-unsplash\ 1.png");
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  animation: mount 0.3s linear;
+}
+.mountains:hover span {
+  top: 45%;
+  left: -10%;
+  font-weight: 500;
+  font-size: 2.7vw;
+  letter-spacing: 0.1em;
+  text-align: center;
+  animation: span 0.3s linear;
+}
 
 .skiing div {
   background-image: url("../../img/matthieu-petiard-Pf6e3o0GL4M-unsplash\ 1.png");
@@ -112,6 +209,28 @@ body {
   top: 0;
 }
 
+.skiing:hover div {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url("../../img/matthieu-petiard-Pf6e3o0GL4M-unsplash\ 1.png");
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  animation: desert 0.3s linear;
+}
+.skiing:hover span {
+  top: 30%;
+  right: -80%;
+  font-weight: 500;
+  font-size: 2.7vw;
+  letter-spacing: 0.1em;
+  text-align: center;
+  animation: spanDes 0.3s linear;
+}
+
 .camping div {
   background-image: url("../../img/josh-hild-8f_VQ3EFbTg-unsplash\ 1.png");
   background-size: cover;
@@ -119,6 +238,48 @@ body {
   width: 100%;
   border-radius: 15px;
   position: absolute;
+}
+.camping:hover div {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url("../../img/josh-hild-8f_VQ3EFbTg-unsplash\ 1.png");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+}
+.camping:hover span {
+  font-weight: 500;
+  font-size: 2.7vw;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2.5vw;
+  width: 280px;
+  position: absolute;
+  top: 43%;
+  left: -55px;
+}
+
+.tropic:hover div {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url("../../img/roberto-nickson-ACrDPEC3CKY-unsplash\ 1.png");
+  filter: blur(2px);
+  animation: widht 0.3s linear;
+}
+.tropic:hover span {
+  top: 45%;
+  left: -10%;
+  font-weight: 500;
+  font-size: 2.7vw;
+  letter-spacing: 0.1em;
+  text-align: center;
+  animation: span 0.3s linear;
 }
 
 .tropic div {
@@ -140,4 +301,65 @@ body {
   display: flex;
   justify-content: flex-start;
   padding: 40px 0 20px;
+}
+
+@keyframes widht {
+  0% {
+    height: 60%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes mount {
+  0% {
+    height: 60%;
+  }
+  100% {
+    height: 90%;
+  }
+}
+
+@keyframes desert {
+  0% {
+    height: 60%;
+  }
+  100% {
+    height: 110%;
+  }
+}
+
+@keyframes span {
+  0% {
+    font-weight: 500;
+    font-size: 2.2vw;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 15%;
+    left: -10%;
+    margin: 0px auto 0 9px;
+  }
+  100% {
+    top: 45%;
+    left: 0;
+    font-weight: 500;
+    font-size: 2.7vw;
+  }
+}
+
+@keyframes spanDes {
+  0% {
+    top: 30%;
+    right: -80%;
+    font-weight: 500;
+  }
+  100% {
+    top: 30%;
+    right: -80%;
+    font-weight: 500;
+    font-size: 2.7vw;
+  }
 }
