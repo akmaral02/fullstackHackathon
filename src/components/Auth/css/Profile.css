@@ -1,0 +1,18 @@
+.mainCont {
+  background: url("../../../img/lukasz-lada-q7z-AUlHPaw-unsplash.png");
+  height: 680px;
+  /* margin: auto; */
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* section {
+} */
+
+.accounFix {
+  display: flex;
+  background: transparent;
+  backdrop-filter: blur(15px);
+}

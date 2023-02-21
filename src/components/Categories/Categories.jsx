@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Categories.css";
 import { Container } from "@mui/system";
 import { useNavigate } from "react-router-dom";
+import { useTour } from "../../contexts/ToursContextProvider";
+import { Box, Typography } from "@mui/material";
 
 const Categories = () => {
+  const { categories, getCategories } = useTour();
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  // <Box>
+  //   {categories?.map((category) => (
+  //     <Typography>{category.title}</Typography>
+  //   ))}
+  // </Box>;
   const navigate = useNavigate();
 
   return (

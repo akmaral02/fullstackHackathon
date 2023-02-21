@@ -11,6 +11,6 @@ export function calcSubPrice(tour) {
 export function getToken() {
   const token = JSON.parse(localStorage.getItem("token"));
   const Authorization = `Bearer ${token.access}`;
-  const config = { header: { Authorization } };
+  const config = { headers: { Authorization } };
   return config;
 }

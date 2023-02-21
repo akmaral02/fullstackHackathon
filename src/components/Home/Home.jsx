@@ -10,6 +10,7 @@ import bg from "./slider1.mp4";
 const Home = () => {
   return (
     <>
+      {/* <Container> */}
       <Box className="home">
         <video className="video-slide" src={bg} autoPlay muted loop></video>
         <Box className="content">
@@ -58,6 +59,8 @@ const Home = () => {
           </IconButton>
         </Box>
       </Box>
+      {/* </Container> */}
+
       <div className="home_center_under">
         <Container>
           <div className="home_center_under_block">

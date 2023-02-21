@@ -1,30 +1,49 @@
 import axios from "axios";
-import React, { createContext, useReducer } from "react";
-import { useNavigate } from "react-router-dom";
-import { API_CATEGORIES, API_Comments, API_TOUR } from "../helpers/consts";
+import { async } from "q";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  API_CATEGORIES,
+  API_Comments,
+  API_HOTELS,
+  API_TOUR,
+} from "../helpers/consts";
 import { getToken } from "../helpers/function";
 
-export const toursContext = createContext();
-export const useTour = () => useTour();
+const toursContext = createContext();
+export const useTour = () => useContext(toursContext);
 
 let initState = [
   {
     tours: [],
     oneTour: {},
     categories: [],
-    // page:0
+    pages: 0,
+    hotels: [],
   },
 ];
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case "getTours":
-      return { ...state, tours: action.payload };
+      return {
+        ...state,
+        tours: action.payload.results,
+        pages: Math.ceil(action.payload.count / 6),
+      };
     //tours:  action.payload.result
     case "getOneTour":
       return { ...state, oneTour: action.payload };
     case "getCategories":
       return { ...state, categories: action.payload };
+    case "getHotels":
+      return { ...state, hotels: action.payload };
     default:
       return state;
   }
@@ -33,13 +52,14 @@ const reducer = (state = initState, action) => {
 const ToursContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initState);
   const navigate = useNavigate();
+  const location = useLocation();
 
   //! FUNC-ON FOR GETTING TOURS DATA FROM API
   const getTours = async () => {
     try {
       let config = getToken();
 
-      let res = await axios.get(`${API_TOUR}`, config); //${window.location.search}
+      let res = await axios.get(`${API_TOUR}${window.location.search}`, config);
       dispatch({
         type: "getTours",
         payload: res.data,
@@ -51,23 +71,49 @@ const ToursContextProvider = ({ children }) => {
 
   //? EMD FUNC-ON FOR GETTINF TOURS DATA FROM API
 
-  //! FUNC-ON FOR GET CATEGORIES FROM API
+  //! FUNC-ON FOR GET CATEGORIES  & HOTELS FROM API
   const getCategories = async () => {
     try {
       let config = getToken();
 
-      let res = await axios.get(`${API_CATEGORIES}list/`, config);
+      let res = await axios.get(`${API_CATEGORIES}`, config);
 
       dispatch({
         type: "getCategories",
-        payload: res.data,
+        payload: res.data.results,
       });
     } catch (error) {
       console.log(error);
     }
   };
 
-  //? END FUNC-ON FOR GET CATEGORIES FROM API
+  const getHotels = async () => {
+    try {
+      let config = getToken();
+
+      let res = await axios.get(`${API_HOTELS}`, config);
+
+      dispatch({
+        type: "getHotels",
+        payload: res.data.results,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //? END FUNC-ON FOR GET CATEGORIES &HOtels FROM API
+
+  const addHotels = async (newHotel) => {
+    try {
+      let config = getToken();
+
+      let res = await axios.post(`${API_HOTELS}`, newHotel, config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //! FUNC-ON FOR ADD NEW TOUR TO API
   const addTours = async (newTour) => {
@@ -76,7 +122,7 @@ const ToursContextProvider = ({ children }) => {
 
       let res = await axios.post(`${API_TOUR}`, newTour, config);
       console.log(res.data);
-      navigate("/tours");
+      // navigate("/tours");
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +153,7 @@ const ToursContextProvider = ({ children }) => {
       let config = getToken();
 
       let res = await axios.patch(`${API_TOUR}${id}/`, editedTour, config);
-      getTours();
+      // getTours();
       navigate("/tours");
     } catch (error) {
       console.log(error);
@@ -122,7 +168,7 @@ const ToursContextProvider = ({ children }) => {
       let config = getToken();
 
       let res = await axios.delete(`${API_TOUR}${id}/`, config);
-      getTours();
+      // getTours();
     } catch (error) {
       console.log(error);
     }
@@ -136,7 +182,7 @@ const ToursContextProvider = ({ children }) => {
     try {
       let config = getToken();
       let res = await axios.get(`${API_TOUR}${id}/like/`, config);
-      getTours();
+      // getTours();
     } catch (error) {
       // Comments?.title?.map()
       console.log(error);
@@ -147,10 +193,10 @@ const ToursContextProvider = ({ children }) => {
 
   //! FUNC-ON FOR COMMENTS
 
-  const comments = async (commnet, id) => {
+  const comments = async (comment, id) => {
     try {
       let config = getToken();
-      let res = await axios.post(`${API_Comments}`, commnet, config);
+      let res = await axios.post(`${API_Comments}`, comment, config);
       getOneTour(id);
     } catch (error) {
       console.log(error);
@@ -159,19 +205,74 @@ const ToursContextProvider = ({ children }) => {
 
   //? END FUNC-ON FOR COMMENTS
 
+  //! FUNC-ON FOR RATING
+
+  const setRating = async (id, rating) => {
+    try {
+      let config = getToken();
+
+      let res = await axios.post(`${API_TOUR}${id}/rating/`, rating, config);
+      getOneTour(id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //? END FUNC-ON FOR RATING
+
+  //! FUNC-ON FOR SEARCH
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("search") || "");
+
+  useEffect(() => {
+    setSearchParams({ search: search }); //q-> country
+  }, [search]);
+
+  useEffect(() => {
+    // getTours();
+  }, [searchParams]);
+
+  //? END FUNC-ON FOR SEARCH
+
+  //! FUNC-ON FOR FILTER
+
+  const fetchByParams = async (query, value) => {
+    const search = new URLSearchParams(location.search);
+    if (value === "") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+    const url = `${location.pathname}?${search.toString()}`;
+    navigate(url);
+  };
+
+  //? END FUNC-ON FOR FILTER
+
   let value = {
     tours: state.tours,
     oneTour: state.oneTour,
     categories: state.categories,
+    hotels: state.hotels,
 
-    getTours,
+    searchParams,
+    setSearchParams,
+    search,
+    setSearch,
+
+    // getTours,
     getCategories,
+    getHotels,
+    addHotels,
     getOneTour,
     addTours,
     editTour,
     deleteTour,
     like,
     comments,
+    setRating,
+    fetchByParams,
   };
   return (
     <toursContext.Provider value={value}>{children}</toursContext.Provider>

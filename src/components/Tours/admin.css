@@ -38,3 +38,34 @@ input:valid ~ label {
   border-radius: 5px;
   border-color: aqua;
 }
+
+/* .upload {
+  background: url("./image/upload.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Box.upload input[type="file"] {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+} */
+.feedback__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17vw;
+  height: 17vw;
+  color: #282828;
+  cursor: pointer;
+
+  background: url("./image/upload.png");
+  background-size: cover;
+  border-radius: 10px;
+}
+.feedback__file {
+  display: none;
+}

@@ -25,6 +25,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { ICON_COLOR, MAIN_COLOR } from "../../helpers/consts";
+import { useTour } from "../../contexts/ToursContextProvider";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -69,6 +70,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   const { user, logout } = useAuth();
+  const { search, setSearch } = useTour();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -144,30 +146,30 @@ export default function Navbar() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-      sx={{ backgroundColor: "transparent" }}
+      // sx={{ backgroundColor: "transparent" }}
     >
-      <Link className="links" to="/">
+      <Link className="menulink" to="/">
         <MenuItem className="nav">HOME</MenuItem>
       </Link>
-      <Link className="links" to="/tours">
+      <Link className="menulink" to="/tours">
         <MenuItem className="nav">PACKAGES</MenuItem>
       </Link>
-      <Link className="links" to="/contactus">
+      <Link className="menulink" to="/contactus">
         <MenuItem className="nav">CONTACT US</MenuItem>
       </Link>
-      <Link className="links" to="/mytours">
+      <Link className="menulink" to="/mytours">
         <MenuItem className="nav">MY TOURS</MenuItem>
       </Link>
-      {/* {user === "admin@admin.com" ? (
-        <Link className="links" to="/admin">
+      {user === "admin@admin.com" ? (
+        <Link className="menulink" to="/admin">
           <MenuItem className="nav">ADMIN</MenuItem>
         </Link>
-      ) : null} */}
+      ) : null}
     </Menu>
   );
 
   return (
-    <div className="cont">
+    <div>
       <Box
         sx={{
           flexGrow: 12,
@@ -181,7 +183,8 @@ export default function Navbar() {
           sx={{
             // background: "#ffffff",
             // opacity: 50,
-            background: "rgba(255, 255, 255, 0.10)",
+            // background: "rgba(255, 255, 255, 0.10)",
+            background: "rgba(0, 0, 0, 0.20)",
             backdropFilter: "blur(100px)",
             // boxShadow: "inset 0px -10px 100px rgba(255, 255, 255, 0.80)",
           }}
@@ -195,13 +198,14 @@ export default function Navbar() {
             >
               <IconButton
                 onClick={handleMobileMenuOpen}
-                size="large"
+                // size="large"
                 edge="start"
                 aria-label="open drawer"
                 sx={{
                   mr: 2,
-                  display: { xs: "flex", md: "none", lg: "none", sm: "none" },
+                  display: { xs: "flex", md: "none", lg: "none", sm: "flex" },
                 }}
+                color="inherit"
               >
                 <MenuIcon />
               </IconButton>
@@ -212,8 +216,8 @@ export default function Navbar() {
                   // backgroundColor="black"
                   component="img"
                   sx={{
-                    height: 48,
-                    display: { xs: "none", sm: "flex", md: "flex", lg: "flex" },
+                    height: 35,
+                    display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
                   }}
                   alt="logo"
                   src={Logo}
@@ -267,9 +271,9 @@ export default function Navbar() {
                 <MenuItem className="nav">GALLERY</MenuItem>
               </Link>
               <Link className="links" to="/mytours">
-                <MenuItem className="nav">MY PLANTS</MenuItem>
+                <MenuItem className="nav">MY TOURS</MenuItem>
               </Link>
-              {user.email === "admin@admin.com" ? (
+              {user === "admin@admin.com" ? (
                 <Link className="links" to="/admin">
                   <MenuItem className="nav">ADMIN</MenuItem>
                 </Link>
@@ -290,10 +294,10 @@ export default function Navbar() {
                 <StyledInputBase
                   placeholder="Search…"
                   inputProps={{ "aria-label": "search" }}
-                  // value={search}
-                  // onChange={(e) => {
-                  //   setSearch(e.target.value);
-                  // }}
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
                   sx={{
                     border: 0.1,
                     color: "#EFEFEF",
@@ -372,6 +376,7 @@ export default function Navbar() {
                 aria-controls={menuId}
                 aria-haspopup="true"
                 onClick={handleProfileMenuOpen}
+                color="inherit"
               >
                 <MoreIcon />
               </IconButton>

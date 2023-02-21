@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Dialog,
-  Snackbar,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, Snackbar } from "@mui/material";
 import React, { useState } from "react";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
@@ -14,64 +7,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import MuiAlert from "@mui/material/Alert";
 
-//! modal
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "auto",
-  height: "auto",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-//!
-
 //? snack
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 //?
 const Auth = () => {
-  const { register, login, error, changeOldPassword, success } = useAuth();
+  const { register, login, error, success } = useAuth();
 
-  //! modal
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
+  // const navigate = useNavigate();
 
-  // const [change, setChange] = useState({
-  //   old_password: "",
-  //   new_password: "",
-  //   new_password_confirm: "",
-  // });
-
-  // const handleChangePassword = (e) => {
-  //   setChange((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
-  // const handleSave = () => {
-  //   const changed = new FormData();
-  //   changed.append("old_password", change.old_password);
-  //   changed.append("new_password", change.new_password);
-  //   changed.append("new_password_confirm", change.new_password_confirm);
-  //   changeOldPassword(changed);
-  // };
-  //!
-
-  const navigate = useNavigate();
-
-  //! snackbar
   const [open, setOpen] = useState(false);
   const [openE, setOpenE] = useState(false);
-
-  const handleClick = () => {};
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -81,10 +28,8 @@ const Auth = () => {
     setOpen(false);
     setOpenE(false);
   };
-  //!
 
   const [alert, setAlert] = useState("none");
-  const [alertForSuccess, setAlertForSuccess] = useState("none");
 
   const [isSignUp, setSignUp] = useState(false);
   const [inputs, setInputs] = useState({
@@ -92,10 +37,6 @@ const Auth = () => {
     password: "",
     password_confirm: "",
   });
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = React.useState("");
-  // const [confirmPassword, setConfirmPassword] = React.useState("");
 
   const handleChange = (e) => {
     setInputs((prevState) => ({
@@ -129,98 +70,17 @@ const Auth = () => {
       setOpen(true);
       return;
     }
-    // register ? setOpenE(true) : setOpen(true);
-    // register ? setState({ open: true, ...state }) : console.log(error);
-    // alert(error.response.data.email);
-    // error ? setAlertForSuccess("flex") : navigate("/");
+    if (login) {
+      setOpen(true);
+      // setOpenE(true);
+      return;
+    }
   };
 
   return (
     <div className="body">
-      {/* //! */}
-      {/* <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <Box width={500} height={"auto"}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Change password
-          </Typography>
-          <div>
-            <input
-              type="password"
-              required
-              name="old_password"
-              value={change.old_password}
-              onChange={handleChangePassword}
-            ></input>
-            <label for="">Old Password</label>
-          </div>
-          <div>
-            <input
-              type="password"
-              required
-              name="new_password"
-              value={change.new_password}
-              onChange={handleChangePassword}
-            ></input>
-            <label for="">New Password</label>
-          </div>
-          <div>
-            <input
-              type="password"
-              required
-              name="new_password_confirm"
-              value={change.new_password_confirm}
-              onChange={handleChangePassword}
-            ></input>
-            <label for="">New Password Confirm</label>
-          </div>
-        </Box>
-        <Button onClick={handleSave}>Save</Button>
-      </Dialog> */}
-
-      {/* //! */}
       <div className="section">
         <div className="form-box" onSubmit={handleSubmit}>
-          {/* {error ? (
-            <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
-              <Alert
-                // severity={error ? "error" : "success"}
-                onClose={handleClose}
-                severity="success"
-                sx={{
-                  justifyContent: "center",
-                  fontSize: 20,
-                }}
-              >
-                {success}
-              </Alert>
-            </Snackbar>
-          ) : (
-            <Snackbar
-              open={openE}
-              autoHideDuration={1000}
-              onClose={handleClose}
-            >
-              <Alert
-                // severity={error ? "error" : "success"}
-                onClose={handleClose}
-                severity="error"
-                sx={{
-                  justifyContent: "center",
-                  fontSize: 20,
-                }}
-              >
-                {error}
-
-                {error ? { error } : { success }}
-              </Alert>
-            </Snackbar>
-          )} */}
-
           {open !== null && (
             <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
               <Alert
@@ -229,12 +89,33 @@ const Auth = () => {
                 sx={{
                   justifyContent: "center",
                   fontSize: 20,
+                  // color: "inherit",
                 }}
               >
                 {error ? error : success}
               </Alert>
             </Snackbar>
           )}
+
+          {/* {openE !== null && (
+            <Snackbar
+              open={openE}
+              autoHideDuration={4000}
+              onClose={handleClose}
+            >
+              <Alert
+                onClose={handleClose}
+                severity={error ? "error" : "success"}
+                sx={{
+                  justifyContent: "center",
+                  fontSize: 20,
+                  // color: "inherit",
+                }}
+              >
+                {error ? error : success}
+              </Alert>
+            </Snackbar>
+          )} */}
 
           <div className="form-value">
             <Alert
@@ -287,7 +168,7 @@ const Auth = () => {
                 type="submit"
                 sx={{ marginTop: 3, borderRadius: 3 }}
                 variant="contained"
-                // color="white"
+                className="auth_button"
               >
                 {isSignUp ? "SignUp" : "LogIn"}
               </Button>
@@ -295,7 +176,6 @@ const Auth = () => {
               <Button
                 endIcon={isSignUp ? <LoginIcon /> : <HowToRegIcon />}
                 onClick={resetState}
-                // onClick={() => setSignUp(!isSignUp)}
                 sx={{ marginTop: 3, borderRadius: 3 }}
               >
                 Change to {isSignUp ? "Login" : "SignUp"}
@@ -308,7 +188,6 @@ const Auth = () => {
                   </p>
                 </div>
               )}
-              {/* <Button onClick={handleOpen}>Cange Password</Button> */}
             </form>
           </div>
         </div>

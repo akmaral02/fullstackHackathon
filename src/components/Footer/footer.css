@@ -13,10 +13,11 @@ ul {
   list-style: none;
 }
 .footer {
+  /* height: 1000px; */
   background: rgba(1, 70, 127, 0.5);
   /* background-image: url("./kk.jpg"); */
   backdrop-filter: blur(15px);
-  padding: 200px 0;
+  padding: 15px 0;
 }
 
 p {
@@ -24,7 +25,7 @@ p {
 }
 
 .footer-col {
-  width: 25%;
+  width: 20%;
   padding: 0 15px;
 }
 
@@ -86,6 +87,7 @@ p {
     width: 100%;
   }
   .footer {
-    padding-top: 700px;
+    padding-top: 75px;
+    padding-bottom: 200px;
   }
 }
