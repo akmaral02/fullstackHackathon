@@ -1,18 +1,25 @@
 import React from "react";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import "./css/TourCard.css";
+import "../../pages/tourPages/css/TourCard.css";
 import { Container } from "@mui/system";
 import { IconButton } from "@mui/material";
+import { useTour } from "../../contexts/ToursContextProvider";
+import { Link } from "react-router-dom";
 
-const TourCard = () => {
+const TourCard = ({ item }) => {
+  const { getOneTour, oneTour, deleteTour, like } = useTour();
+  // console.log(item.image);
   return (
     <Container>
       <div className="tour_card__block">
         <div className="tour_card__card">
           <div className="tour_card__card__block">
-            <div className="tour_card__card__img">
+            <div
+              className="tour_card__card__img"
+              style={{ backgroundImage: `${item.image}` }}
+            >
               <IconButton>
                 <BookmarkBorderIcon
                   style={{
@@ -21,12 +28,13 @@ const TourCard = () => {
                 ></BookmarkBorderIcon>
               </IconButton>
 
-              <IconButton>
-                <FavoriteBorderIcon
-                  style={{
-                    color: "rgb(255, 255, 213)",
-                  }}
-                ></FavoriteBorderIcon>
+              <IconButton onClick={() => like(item.id)}>
+                <FavoriteIcon
+                  // style={{
+                  //   color: "rgb(255, 255, 213)",
+                  // }}
+                  color={item.likes_count > 0 ? "error" : ""}
+                ></FavoriteIcon>
               </IconButton>
             </div>
 
@@ -39,36 +47,38 @@ const TourCard = () => {
                       color: "white",
                     }}
                   ></LocationOnIcon>
-                  <span>Turkey</span>
+                  <span>{item.title}</span>
                 </div>
               </div>
 
-              <span>880$</span>
+              <span>{item.price}$</span>
             </div>
 
             <div className="tour_card__card_baseLine"></div>
 
             <div className="tour_card__card__block_time">
               <div className="tour_card__card__time flight">
-                <div></div>25.03.23
+                <div></div>
+                {item.date_start}
               </div>
 
               <div className="tour_card__card__time arrived">
-                <div></div>04.04.23
+                <div></div>
+                {item.date_end}
               </div>
 
-              <div className="tour_card__card__days">7 days</div>
+              {/* <div className="tour_card__card__days">7 days</div> */}
             </div>
 
             <div className="tour_card__card_baseLine"></div>
-
-            <button className="tour_card__card_btn">VIEW DETAILS</button>
+            <Link to={`/detail/${item.id}`}>
+              <button className="tour_card__card_btn">VIEW DETAILS</button>
+            </Link>
           </div>
         </div>
       </div>
     </Container>
   );
-
 };
 
 export default TourCard;

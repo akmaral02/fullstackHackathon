@@ -1,18 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import "./css/TourCard.css";
 import { Container } from "@mui/system";
-import { IconButton } from "@mui/material";
+import { Box, IconButton, Pagination } from "@mui/material";
+import { useTour } from "../../contexts/ToursContextProvider";
+import { useSearchParams } from "react-router-dom";
+import TourCard from "../../components/Tours/TourCard";
 
-const BeachesPage = () => {
+const BeachesPage = ({ item }) => {
+  const { getTours, tours, next } = useTour();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+
+  // useEffect(() => {
+  //   getTours();
+  // }, []);
+  // useEffect(() => {
+  //   setSearchParams({
+  //     q: search,
+  //   });
+  //   console.log(searchParams.toString());
+  // }, [search]);
+
+  // useEffect(() => {
+  //   getTours();
+  // }, [searchParams]);
+
+  useEffect(() => {
+    setSearchParams({
+      next: currentPage,
+    });
+  }, [currentPage]);
+
   return (
     <div className="tour_beaches">
       <div className="tour_card">
         <Container>
           <h1 className="tour_card_h1">BEACHES</h1>
-          <div className="tour_card__block">
+          <Box width={"100%"} display="flex" flexWrap={"wra"}>
+            <TourCard key={item.id} item={item} />;
+            <Box>
+              <Pagination
+                count={next}
+                page={currentPage}
+                variant="outlined"
+                color="primary"
+                onChange={(e, p) => setCurrentPage(p)}
+              />
+            </Box>
+          </Box>
+          {/* <div className="tour_card__block">
             <div className="tour_card__card">
               <div className="tour_card__card__block">
                 <div className="tour_card__card__img">
@@ -347,7 +387,7 @@ const BeachesPage = () => {
                 <button className="tour_card__card_btn">VIEW DETAILS</button>
               </div>
             </div>
-          </div>
+          </div> */}
         </Container>
       </div>
     </div>

@@ -34,7 +34,7 @@ const MainRoutes = () => {
     { link: "/auth", element: <AuthPage />, id: 2 },
     { link: "/verif", element: <VerificationPage />, id: 3 },
     { link: "/tours", element: <CategoriesPage />, id: 4 },
-    { link: "/tours/:id", element: <TourDetailPage />, id: 5 },
+    { link: "/detail/:id", element: <TourDetailPage />, id: 5 },
     { link: "/mytours", element: <CartPage />, id: 6 },
     { link: "/contactus", element: <ContactUsPage />, id: 7 },
     { link: "/paymentform", element: <PaymentFormPage />, id: 8 },

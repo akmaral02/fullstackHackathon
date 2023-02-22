@@ -24,7 +24,7 @@ let initState = [
     tours: [],
     oneTour: {},
     categories: [],
-    pages: 0,
+    next: 0,
     hotels: [],
   },
 ];
@@ -35,7 +35,7 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         tours: action.payload.results,
-        pages: Math.ceil(action.payload.count / 6),
+        next: Math.ceil(action.payload.count / 6),
       };
     //tours:  action.payload.result
     case "getOneTour":
@@ -121,7 +121,7 @@ const ToursContextProvider = ({ children }) => {
       let config = getToken();
 
       let res = await axios.post(`${API_TOUR}`, newTour, config);
-      console.log(res.data);
+      console.log(res);
       // navigate("/tours");
     } catch (error) {
       console.log(error);
@@ -181,8 +181,8 @@ const ToursContextProvider = ({ children }) => {
   const like = async (id) => {
     try {
       let config = getToken();
-      let res = await axios.get(`${API_TOUR}${id}/like/`, config);
-      // getTours();
+      let res = await axios.post(`${API_TOUR}${id}/like/`, config);
+      getTours();
     } catch (error) {
       // Comments?.title?.map()
       console.log(error);
@@ -255,13 +255,14 @@ const ToursContextProvider = ({ children }) => {
     oneTour: state.oneTour,
     categories: state.categories,
     hotels: state.hotels,
+    next: state.next,
 
     searchParams,
     setSearchParams,
     search,
     setSearch,
 
-    // getTours,
+    getTours,
     getCategories,
     getHotels,
     addHotels,

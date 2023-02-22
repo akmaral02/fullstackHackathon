@@ -74,7 +74,7 @@
 }
 
 .tour_card__card__img {
-  background-image: url("../../../img/timur-garifov-sisZWCDkmwA-unsplash\ 1.png");
+  /* background-image: url("../../../img/timur-garifov-sisZWCDkmwA-unsplash\ 1.png"); */
   background-size: cover;
   height: 39%;
   width: 100%;
@@ -155,14 +155,14 @@
   background-image: url("../../../img/airplane.png");
   background-size: cover;
   transform: rotate(32.88deg);
-  width: 30px;
+  width: 45px;
   height: 30px;
 }
 .arrived div {
   background-image: url("../../../img/airplane.png");
   background-size: cover;
   transform: rotate(158.65deg);
-  width: 30px;
+  width: 45px;
   height: 30px;
 }
 
