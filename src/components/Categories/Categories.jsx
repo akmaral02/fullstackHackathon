@@ -36,7 +36,7 @@ const Categories = () => {
 
             <div
               className="categories_card iconiccities I_C"
-              onClick={() => navigate("/category/iconic_cities")}
+              // onClick={() => navigate("/category/iconic_cities")}
             >
               <div>
                 <span>ICONIC CITIES</span>
@@ -45,7 +45,7 @@ const Categories = () => {
 
             <div
               className="categories_card desert D_S"
-              onClick={() => navigate("/category/desert")}
+              // onClick={() => navigate("/category/desert")}
             >
               <div></div>
               <span>DESERT</span>
@@ -53,7 +53,7 @@ const Categories = () => {
 
             <div
               className="categories_card mountains"
-              onClick={() => navigate("/category/mountains")}
+              // onClick={() => navigate("/category/mountains")}
             >
               <div></div>
               <span>MOUNTAINS</span>
@@ -61,7 +61,7 @@ const Categories = () => {
 
             <div
               className="categories_card skiing D_S"
-              onClick={() => navigate("/category/skiing")}
+              // onClick={() => navigate("/category/skiing")}
             >
               <div></div>
               <span>SKIING</span>
@@ -69,7 +69,7 @@ const Categories = () => {
 
             <div
               className="categories_card camping I_C"
-              onClick={() => navigate("/category/camping")}
+              // onClick={() => navigate("/category/camping")}
             >
               <div>
                 <span>CAMPING</span>
@@ -78,7 +78,7 @@ const Categories = () => {
 
             <div
               className="categories_card tropic B_T"
-              onClick={() => navigate("/category/tropic")}
+              // onClick={() => navigate("/category/tropic")}
             >
               <div></div>
               <span>TROPIC</span>

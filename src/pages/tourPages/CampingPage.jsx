@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import "./css/TourCard.css";
 import { Container } from "@mui/system";
-import { IconButton } from "@mui/material";
+import { Box, IconButton, Pagination } from "@mui/material";
+import TourCard from "../../components/Tours/TourCard";
+import { useTour } from "../../contexts/ToursContextProvider";
+import { useSearchParams } from "react-router-dom";
 
-const CampingPage = () => {
+const CampingPage = ({ item }) => {
+  console.log(item.image);
+
   return (
     <div className="tour_camping">
       <div className="tour_card">
         <Container>
           <h1 className="tour_card_h1">CAMPING</h1>
-          <div className="tour_card__block">
+
+          <Box width={"100%"} display="flex" flexWrap={"wra"}>
+            <TourCard key={item.id} item={item} />
+          </Box>
+          {/* <div className="tour_card__block">
             <div className="tour_card__card">
               <div className="tour_card__card__block">
                 <div className="tour_card__card__img">
@@ -347,7 +356,7 @@ const CampingPage = () => {
                 <button className="tour_card__card_btn">VIEW DETAILS</button>
               </div>
             </div>
-          </div>
+          </div> */}
         </Container>
       </div>
     </div>

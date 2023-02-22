@@ -39,13 +39,20 @@ input:valid ~ label {
   border-color: aqua;
 }
 
-/* .upload {
+.upload {
   background: url("./image/upload.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.Box.upload input[type="file"] {
+.upload input[type="file"]::before {
+  content: none;
+}
+
+.upload input[type="file"]::after {
+  content: none;
+}
+/* .Box.upload input[type="file"] {
   background-color: transparent;
   border: none;
   outline: none;
@@ -53,7 +60,7 @@ input:valid ~ label {
   font-family: inherit;
   cursor: pointer;
 } */
-.feedback__label {
+/* .feedback__label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,4 +75,4 @@ input:valid ~ label {
 }
 .feedback__file {
   display: none;
-}
+} */
