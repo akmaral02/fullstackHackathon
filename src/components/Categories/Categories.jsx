@@ -28,7 +28,7 @@ const Categories = () => {
           <div className="categories_card_block">
             <div
               className="categories_card beach B_T"
-              onClick={() => navigate("/category/beach")}
+              onClick={() => navigate("/categories/beaches")}
             >
               <h6>BEACHES</h6>
               <div></div>
