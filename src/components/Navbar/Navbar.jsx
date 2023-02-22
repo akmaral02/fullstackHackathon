@@ -14,7 +14,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import Logo from "../../images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Navbar.css";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import CallIcon from "@mui/icons-material/Call";
@@ -26,7 +26,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { ICON_COLOR, MAIN_COLOR } from "../../helpers/consts";
 import { useTour } from "../../contexts/ToursContextProvider";
-
+import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   // borderRadius: theme.shape.borderRadius,
@@ -340,18 +340,35 @@ export default function Navbar() {
                 </Link>
               </Box>
 
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  alignItems: "center",
+                }}
+              >
                 {user ? (
-                  <IconButton
-                    size="large"
-                    edge="end"
-                    aria-label="account of current user"
-                    aria-haspopup="true"
-                    onClick={logout}
-                    color="inherit"
-                  >
-                    <LogoutIcon />
-                  </IconButton>
+                  <>
+                    <IconButton
+                      size="large"
+                      edge="end"
+                      aria-label="account of current user"
+                      aria-haspopup="true"
+                      onClick={logout}
+                      color="inherit"
+                    >
+                      <LogoutIcon />
+                    </IconButton>
+                    <Link className="links" to={"/profile"}>
+                      <IconButton
+                        size="large"
+                        edge="end"
+                        aria-label="account of current user"
+                        color="inherit"
+                      >
+                        <ManageAccountsOutlinedIcon />
+                      </IconButton>
+                    </Link>
+                  </>
                 ) : (
                   <Link className="links" to={"/auth"}>
                     <IconButton

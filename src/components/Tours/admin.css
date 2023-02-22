@@ -76,3 +76,8 @@ input:valid ~ label {
 .feedback__file {
   display: none;
 } */
+
+.buttons_for_adding_to_API {
+  color: #fff !important;
+  background-color: #1c4d63 !important;
+}

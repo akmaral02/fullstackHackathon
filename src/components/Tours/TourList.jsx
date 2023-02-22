@@ -10,50 +10,58 @@ import SkiingPage from "../../pages/tourPages/SkiingPage";
 import TropicPage from "../../pages/tourPages/TropicPage";
 
 const TourList = () => {
-  const { getTours, tours, next } = useTour();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get("q") || "");
+  // const { getTours, tours, next } = useTour();
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const [search, setSearch] = useState(searchParams.get("q") || "");
 
-  useEffect(() => {
-    getTours();
-  }, []);
-  useEffect(() => {
-    setSearchParams({
-      q: search,
-    });
-    console.log(searchParams.toString());
-  }, [search]);
+  // useEffect(() => {
+  //   getTours();
+  // }, []);
+  // useEffect(() => {
+  //   setSearchParams({
+  //     q: search,
+  //   });
+  //   console.log(searchParams.toString());
+  // }, [search]);
 
-  useEffect(() => {
-    getTours();
-  }, [searchParams]);
+  // useEffect(() => {
+  //   getTours();
+  // }, [searchParams]);
 
-  useEffect(() => {
-    setSearchParams({
-      next: currentPage,
-    });
-  }, [currentPage]);
+  // useEffect(() => {
+  //   setSearchParams({
+  //     next: currentPage,
+  //   });
+  // }, [currentPage]);
 
   return (
     <div>
-      {tours?.map((item) => {
+      {/* {tours?.map((item) => {
         if (item.packet_category === 1) {
-          return <BeachesPage key={item.id} item={item} />;
+          return <BeachesPage />;
         } else if (item.packet_category === 2) {
-          return <IconicCitiesPage key={item.id} item={item} />;
+          return <IconicCitiesPage />;
         } else if (item.packet_category === 3) {
-          return <DesertPage key={item.id} item={item} />;
+          return <MountainsPage />;
         } else if (item.packet_category === 4) {
-          return <MountainsPage key={item.id} item={item} />;
+          return <DesertPage />;
         } else if (item.packet_category === 5) {
-          return <SkiingPage key={item.id} item={item} />;
+          return <SkiingPage />;
         } else if (item.packet_category === 6) {
-          return <CampingPage key={item.id} item={item} />;
+          return <TropicPage />;
         } else if (item.packet_category === 7) {
-          return <TropicPage key={item.id} item={item} />;
+          return <CampingPage />;
         }
-      })}
+      })} */}
+
+      <BeachesPage />
+      <IconicCitiesPage />
+      <MountainsPage />
+      <DesertPage />
+      <SkiingPage />
+      <TropicPage />
+      <CampingPage />
     </div>
   );
 };

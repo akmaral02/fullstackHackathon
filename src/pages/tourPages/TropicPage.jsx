@@ -10,32 +10,57 @@ import { useSearchParams } from "react-router-dom";
 import { useTour } from "../../contexts/ToursContextProvider";
 
 const TropicPage = ({ item }) => {
-  // const { getTours, tours, next } = useTour();
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const [search, setSearch] = useState(searchParams.get("q") || "");
+  const { getTours, tours, page } = useTour();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
 
-  // useEffect(() => {
-  //   setSearchParams({
-  //     next: currentPage,
-  //   });
-  // }, [currentPage]);
+  useEffect(() => {
+    getTours();
+  }, []);
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+    console.log(searchParams.toString());
+  }, [search]);
+
+  useEffect(() => {
+    getTours();
+  }, [searchParams]);
+
+  useEffect(() => {
+    setSearchParams({
+      page: currentPage,
+    });
+  }, [currentPage]);
   return (
     <div className="tour_tropic">
       <div className="tour_card">
         <Container>
           <h1 className="tour_card_h1">TROPIC</h1>
-          <Box width={"100%"} display="flex" flexWrap={"wra"}>
-            <TourCard key={item.id} item={item} />
-            {/* <Box>
-              <Pagination
-                count={next}
-                page={currentPage}
-                variant="outlined"
-                color="primary"
-                onChange={(e, p) => setCurrentPage(p)}
-              />
-            </Box> */}
+          <Box width={"100%"} display="flex" flexWrap={"wrap"}>
+            {tours?.map((item) =>
+              item.packet_category === 6 ? (
+                <TourCard key={item.id} item={item} />
+              ) : null
+            )}
+          </Box>
+          <Box
+            width={"30%"}
+            height={50}
+            display={"flex"}
+            justifyContent="center"
+            alignItems={"center"}
+            sx={{ backgroundColor: "rgba(255, 255, 255, 0.30)" }}
+          >
+            <Pagination
+              count={page}
+              page={currentPage}
+              variant="outlined"
+              shape="rounded"
+              onChange={(e, p) => setCurrentPage(p)}
+            />
           </Box>
         </Container>
       </div>

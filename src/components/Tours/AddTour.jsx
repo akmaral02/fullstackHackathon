@@ -9,45 +9,29 @@ import {
   Select,
   FormControl,
   InputLabel,
+  Switch,
+  FormControlLabel,
 } from "@mui/material";
-import dayjs from "dayjs";
-import Stack from "@mui/material/Stack";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import React, { useEffect, useState } from "react";
 import "./admin.css";
-import Upload from "./image/upload.png";
 import { useTour } from "../../contexts/ToursContextProvider";
+
 const AddTour = () => {
-  // const [date_start, setDateStart] = React.useState(dayjs());
-  // const [date_end, setDateEnd] = React.useState(dayjs());
-
-  const [imageTour, setImageTour] = useState(Upload);
-
   const { addTours, getCategories, categories, getHotels, hotels, addHotels } =
     useTour();
-  const [formData, setFormData] = useState();
-
-  // const handleChangeDateStart = (newValue) => {
-  //   setDateStart(newValue);
-  //   console.log(date_start);
-  // };
-
-  // const handleChangeDateEnd = (newValue) => {
-  //   setDateEnd(newValue);
-  // };
 
   useEffect(() => {
     getHotels();
     getCategories();
   }, []);
 
+  // const [checked, setChecked] = React.useState(false);
+
+  // const handleChangeSwitch = (event) => {
+  //   setChecked(true);
+  // };
+
   const [newHotel, setNewHotel] = useState({
-    id: 0,
     title: "",
     address: "",
     stars: 0,
@@ -55,6 +39,7 @@ const AddTour = () => {
     description: "",
     image: "",
   });
+
   const handleChange = (e) => {
     if (e.target.name === "image") {
       setNewHotel({ ...newHotel, [e.target.name]: e.target.files[0] });
@@ -67,9 +52,6 @@ const AddTour = () => {
   };
 
   const [newTour, setNewTour] = useState({
-    id: "",
-    // date_start: date_start,
-    // date_end: date_end,
     date_start: "",
     date_end: "",
     price: "",
@@ -95,7 +77,6 @@ const AddTour = () => {
 
   const handleChangeValue = (e) => {
     if (e.target.name === "image" || e.target.name === "schedule") {
-      // const files = Array.from(e.target.files);
       setNewTour({ ...newTour, [e.target.name]: e.target.files[0] });
     } else {
       setNewTour({
@@ -105,23 +86,10 @@ const AddTour = () => {
     }
   };
 
-  const handleChangeFile = (e) => {
-    setNewTour({ ...newTour, [e.target.name]: Number(e.target.value) });
-  };
-
-  // else if (
-  //   e.target.name === "id" ||
-  //   e.target.name === "quantity" ||
-  //   e.target.name === "price"
-  // ) {
-  //   setNewTour({ ...newTour, [e.targe.value]: Number(e.target.value) });
-  // }
-
   //! function to save
   function handleSave() {
     let newTourData = new FormData();
     newTourData.append("title", newTour.title);
-    newTourData.append("id", newTour.id);
     newTourData.append("date_start", newTour.date_start);
     newTourData.append("date_end", newTour.date_end);
     newTourData.append("quantity", newTour.quantity);
@@ -142,45 +110,49 @@ const AddTour = () => {
     newTourData.append("day_6", newTour.day_6);
     newTourData.append("day_7", newTour.day_7);
     newTourData.append("hotel", +newTour.hotel);
-    console.log(newTour, "new");
-    console.log(newTourData, "newData");
+    console.log(newTourData);
     addTours(newTourData);
-  }
 
-  // useEffect(() => {
-  // let newHotelAdd = new FormData();
-  // newHotelAdd.append("title", newHotel.title);
-  // newHotelAdd.append("id", parseInt(newHotel.id));
-  // newHotelAdd.append("stars", newHotel.stars);
-  // newHotelAdd.append("address", newHotel.address);
-  // newHotelAdd.append("image", newHotel.image);
-  // newHotelAdd.append("breakfast", newHotel.breakfast);
-  // newHotelAdd.append("description", newHotel.description);
-  //   // console.log(newHotel, "hotel");
-  //   // console.log(newHotelAdd, "hotelData");
-  //   // addHotels(newHotelAdd);
-  //   setFormData(newHotelAdd);
-  // }, [newHotel]);
+    setNewTour({
+      date_start: "",
+      date_end: "",
+      price: "",
+      quantity: "",
+      departure: "",
+      arrival: "",
+      in_stock: true,
+      description: "",
+      schedule: "",
+      image: "",
+      title: "",
+      day_1: "",
+      day_2: "",
+      day_3: "",
+      day_4: "",
+      day_5: "",
+      day_6: "",
+      day_7: "",
+      packet_category: 0,
+      hotel: 0,
+      availability: "",
+    });
+  }
 
   function handleSaveHotel() {
     let newHotelAdd = new FormData();
     newHotelAdd.append("title", newHotel.title);
-    newHotelAdd.append("id", parseInt(newHotel.id));
     newHotelAdd.append("stars", newHotel.stars);
     newHotelAdd.append("address", newHotel.address);
     newHotelAdd.append("image", newHotel.image);
     newHotelAdd.append("breakfast", newHotel.breakfast);
     newHotelAdd.append("description", newHotel.description);
-
-    console.log(newHotel, "hotel");
-    console.log(newHotelAdd, "hotelData");
+    console.log(newHotelAdd);
     addHotels(newHotelAdd);
     setNewHotel({
-      id: 0,
       title: "",
       address: "",
       stars: 0,
-      breakfast: false,
+      // breakfast: false,
       description: "",
       image: "",
     });
@@ -217,29 +189,6 @@ const AddTour = () => {
                 name="image"
                 onChange={handleChangeValue}
               ></Box>
-              <TextField
-                id="outlined-basic"
-                label="ID OF PACKET"
-                variant="outlined"
-                fullWidth
-                type={"number"}
-                required
-                className="inputs-white"
-                name="id"
-                value={newTour.id}
-                onChange={handleChangeFile}
-              />
-
-              {/* <div>
-                <label for="file_out" class="feedback__label"></label>
-                <input
-                  type="file"
-                  id="file_out"
-                  class="feedback__file"
-                  name="image"
-                  onChange={handleChangeValue}
-                />
-              </div> */}
             </Grid>
             <Grid item lg={3} sm={4} md={4} xs={12}>
               <TextField
@@ -253,17 +202,7 @@ const AddTour = () => {
                 value={newTour.title}
                 onChange={handleChangeValue}
               />
-              <TextField
-                id="outlined-basic"
-                label="avalibility"
-                variant="outlined"
-                fullWidth
-                required
-                className="inputs-white"
-                name="availability"
-                value={newTour.availability}
-                onChange={handleChangeFile}
-              />
+
               <Box pt={1.5}>
                 <FormControl fullWidth className="inputs-white">
                   <InputLabel>Category </InputLabel>
@@ -320,7 +259,7 @@ const AddTour = () => {
                 type="number"
                 name="price"
                 value={newTour.price}
-                onChange={handleChangeFile}
+                onChange={handleChangeValue}
               />
 
               <Box pt={1.5}>
@@ -334,7 +273,7 @@ const AddTour = () => {
                   type="number"
                   name="quantity"
                   value={newTour.quantity}
-                  onChange={handleChangeFile}
+                  onChange={handleChangeValue}
                 />
               </Box>
               <Box pt={1.5}>
@@ -366,21 +305,6 @@ const AddTour = () => {
               </Box>
             </Grid>
             <Grid item lg={3} sm={12} md={12} xs={12}>
-              {/* <Box>
-                <TextField
-                  id="outlined-basic"
-                  label="hotel Id"
-                  variant="outlined"
-                  fullWidth
-                  required
-                  type="number"
-                  className="inputs-white"
-                  name="hotel"
-                  value={newTour.hotel}
-                  onChange={handleChangeValue}
-                />
-              </Box> */}
-
               <FormControl fullWidth className="inputs-white">
                 <InputLabel>Hotel </InputLabel>
                 <Select
@@ -396,19 +320,20 @@ const AddTour = () => {
                   ))}
                 </Select>
               </FormControl>
-              <TextField
-                // pt={1.5}
-                id="outlined-basic"
-                label="Description"
-                variant="outlined"
-                fullWidth
-                className="inputs-white"
-                multiline
-                rows={7.9}
-                name="description"
-                value={newTour.description}
-                onChange={handleChangeValue}
-              />
+              <Box mt={1.7}>
+                <TextField
+                  id="outlined-basic"
+                  label="Description"
+                  variant="outlined"
+                  fullWidth
+                  className="inputs-white"
+                  multiline
+                  rows={7}
+                  name="description"
+                  value={newTour.description}
+                  onChange={handleChangeValue}
+                />
+              </Box>
             </Grid>
           </Grid>
         </Container>
@@ -440,19 +365,8 @@ const AddTour = () => {
                 component={"input"}
                 type={"file"}
                 name="schedule"
-                // value={newTour.schedule}
                 onChange={handleChangeValue}
               ></Box>
-              {/* <div>
-                <label for="file_out" class="feedback__label"></label>
-                <input
-                  type="file"
-                  id="file_out"
-                  class="feedback__file"
-                  name="schedule"
-                  onChange={handleChangeValue}
-                />
-              </div> */}
             </Grid>
             <Grid item lg={9}>
               <Grid item lg={12} sm={12} md={12} xs={12}>
@@ -563,7 +477,9 @@ const AddTour = () => {
         </Container>
         <Container>
           <Box display="flex" justifyContent="end" m={3}>
-            <Button onClick={handleSave}>ADD</Button>
+            <Button className="buttons_for_adding_to_API" onClick={handleSave}>
+              ADD
+            </Button>
           </Box>
         </Container>
 
@@ -596,17 +512,6 @@ const AddTour = () => {
                 name="image"
                 onChange={handleChange}
               ></Box>
-
-              {/* <div>
-                <label for="file_out" class="feedback__label"></label>
-                <input
-                  type="file"
-                  id="file_out"
-                  class="feedback__file"
-                  name="image"
-                  onChange={handleChange}
-                />
-              </div> */}
             </Grid>
             <Grid item lg={3} sm={8} xs={12}>
               <Box>
@@ -632,25 +537,27 @@ const AddTour = () => {
                   type="number"
                   className="inputs-white"
                   name="stars"
-                  // value={newHotel.stars}
                   onChange={handleChange}
                   inputProps={{ min: 1, max: 5 }}
                 />
               </Box>
-              <Box pt={1.5}>
-                <TextField
-                  id="outlined-basic"
-                  label="Id"
-                  variant="outlined"
-                  fullWidth
-                  required
-                  type="number"
-                  className="inputs-white"
-                  name="id"
-                  value={newHotel.id}
-                  onChange={handleChange}
+              {/* <Box
+                mt={1.7}
+                height={60}
+                className="inputs-white"
+                display={"flex"}
+                alignItems="center"
+                justifyContent={"space-between"}
+              >
+                <Typography color={"gray"} pl={2}>
+                  Breackfast
+                </Typography>
+                <Switch
+                  checked={checked}
+                  onChange={handleChangeSwitch}
+                  inputProps={{ "aria-label": "controlled" }}
                 />
-              </Box>
+              </Box> */}
             </Grid>
             <Grid item lg={6} md={5} sm={12} xs={12}>
               <TextField
@@ -685,7 +592,12 @@ const AddTour = () => {
         </Container>
         <Container>
           <Box display="flex" justifyContent="end" p={5}>
-            <Button onClick={handleSaveHotel}>ADD HOTEL</Button>
+            <Button
+              className="buttons_for_adding_to_API"
+              onClick={handleSaveHotel}
+            >
+              ADD HOTEL
+            </Button>
           </Box>
         </Container>
       </Box>

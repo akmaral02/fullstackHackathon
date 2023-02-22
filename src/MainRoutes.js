@@ -43,11 +43,12 @@ const MainRoutes = () => {
     { link: "/categories", element: <Categories />, id: 14 },
     { link: "/categories/beaches", element: <BeachesPage />, id: 15 },
     { link: "/profile", element: <ProfilePage />, id: 16 },
+    { link: "/payment", element: <PaymentFormPage />, id: 17 },
   ];
 
   const PrivateRoutes = [
-    { link: "/admin", element: <AdminPage />, id: 17 },
-    { link: "/edit/:id", element: <EditTourPage />, id: 18 },
+    { link: "/admin", element: <AdminPage />, id: 18 },
+    { link: "/edit/:id", element: <EditTourPage />, id: 19 },
   ];
   return (
     <Routes>

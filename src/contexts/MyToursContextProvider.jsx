@@ -25,7 +25,7 @@ const MyToursContextProvider = ({ children }) => {
       let mytours = JSON.parse(localStorage.getItem("mytours"));
       if (!mytours) {
         localStorage.setItem(
-          "maytours",
+          "mytours",
           JSON.stringify({ tours: [], totalPrice: 0 })
         );
 
@@ -81,7 +81,7 @@ const MyToursContextProvider = ({ children }) => {
       //! add func for calculate  total price
 
       mytours.totalPrice = calcTotalPrice(mytours.tours);
-      localStorage.setItem("mytour", JSON.stringify(mytours));
+      localStorage.setItem("mytours", JSON.stringify(mytours));
       dispatch({ type: "getMyTours", payload: mytours });
     } catch (error) {
       console.log(error);
@@ -93,18 +93,14 @@ const MyToursContextProvider = ({ children }) => {
   //! FUNC FOR DELETE FROM LOCALSTORAGE
 
   const deleteFromMyTours = (id) => {
-    try {
-      let mytours = JSON.parse(localStorage.getItem("mytours"));
-      mytours.tours.filter((tour) => tour.everyTour.id !== id);
-      mytours.totalPrice = calcTotalPrice(mytours.tours);
-      localStorage.setItem("mytours", JSON.stringify(mytours));
-      dispatch({
-        type: "getMyTours",
-        payload: mytours,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    let mytours = JSON.parse(localStorage.getItem("mytours"));
+    mytours.tours = mytours.tours.filter((tour) => tour.everyTour.id !== id);
+    mytours.totalPrice = calcTotalPrice(mytours.tours);
+    localStorage.setItem("mytours", JSON.stringify(mytours));
+    dispatch({
+      type: "getMyTours",
+      payload: mytours,
+    });
   };
 
   //? END FUNC FOR DELETE FROM LOCALSTORAGE
@@ -148,6 +144,20 @@ const MyToursContextProvider = ({ children }) => {
 
   //? END FUNC FOR CHANGING COUNT OF MEMBERS
 
+  function hasInMyTours(id) {
+    let mytours = JSON.parse(localStorage.getItem("mytours"));
+
+    if (mytours) {
+      let newMyTours = mytours.tours.filter((elem) => elem.item.id === id);
+      return newMyTours.length > 0 ? true : false;
+    } else {
+      mytours = {
+        everyTour: [],
+        totalPrice: 0,
+      };
+    }
+  }
+
   let value = {
     mytours: state.mytours,
     getMyTours,
@@ -155,6 +165,7 @@ const MyToursContextProvider = ({ children }) => {
     deleteFromMyTours,
     incrementCountOfMembers,
     decrementCountOfMembers,
+    hasInMyTours,
   };
   return (
     <myToursContext.Provider value={value}>{children}</myToursContext.Provider>

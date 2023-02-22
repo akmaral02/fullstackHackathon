@@ -5,7 +5,7 @@ export function calcTotalPrice(tours) {
 }
 
 export function calcSubPrice(tour) {
-  return +tour.count * tour.everyTour.price;
+  return +tour.member * tour.everyTour.price;
 }
 
 export function getToken() {
