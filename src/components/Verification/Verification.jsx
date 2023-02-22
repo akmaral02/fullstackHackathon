@@ -36,7 +36,33 @@ const Verification = () => {
     <>
       <div className="background">
         <Container>
-          <div className="verif_display" style={{ display: first }}>
+          <div className="verif_display">
+            {/* <p className="verif_p">
+              We have sent a temporary verification code to chto-to@gmail.com.
+              Enter the code to verify this device
+            </p>
+
+            <p className="verif_codeP">Enter Verification Code:</p>
+
+            <div className="verif_code_Ablock">
+              <div className="verif_code__blocks"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+              <div className="verif_code__blocks a"></div>
+            </div>
+
+            <button className="verif_btn">VERIFY</button> */}
+
+            <p className="verif_p">
+              Enter your email address to recover lost password
+            </p>
+
             <p className="verif_codeP">Enter Email address:</p>
 
             <TextField

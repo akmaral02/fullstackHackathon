@@ -14,11 +14,9 @@ import BeachesPage from "./pages/tourPages/BeachesPage";
 // import MountainsPage from "./pages/tourPages/MountainsPage";
 // import SkiingPage from "./pages/tourPages/SkiingPage";
 // import TropicPage from "./pages/tourPages/TropicPage";
-import MyToursPage from "./pages/MyToursPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PaymentFormPage from "./pages/PaymentFormPage";
 import TourDetailPage from "./pages/TourDetailPage";
-import ToursPage from "./pages/ToursPage";
 import VerificationPage from "./pages/VerificationPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import CartPage from "./pages/CartPage";
@@ -43,6 +41,7 @@ const MainRoutes = () => {
     { link: "/categories", element: <Categories />, id: 14 },
     { link: "/categories/beaches", element: <BeachesPage />, id: 15 },
     { link: "/profile", element: <ProfilePage />, id: 16 },
+    { link: "/details", element: <TourDetailPage />, id: 16 },
   ];
 
   const PrivateRoutes = [

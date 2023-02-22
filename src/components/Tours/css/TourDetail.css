@@ -1,0 +1,503 @@
+.detail_start {
+  background-image: url("../../../img/5a39bc69e491a2\ 1.png");
+  background-size: cover;
+  width: 100%;
+  height: 50vw;
+}
+.detail_start button {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 2vw;
+  color: #ffffff;
+
+  width: 10vw;
+  height: 4vw;
+  background: #1c4d63;
+  border: 0.3vw solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(2px);
+  border-radius: 0px 1vw 1vw 0px;
+  margin: 4vw 0 2vw;
+}
+.tour_settings {
+  margin: 3vw 0 0;
+}
+.detail_tourIMG {
+  width: 30vw;
+  height: 27vw;
+  border: 2px solid #1c4d63;
+  border-radius: 15px;
+}
+.detail_tourIMG div {
+  background-image: url("../../../img/image\ 311.png");
+  background-size: cover;
+  width: 93%;
+  height: 90%;
+  filter: drop-shadow(0px -15px 20px rgba(0, 0, 0, 0.25))
+    drop-shadow(15px 15px 20px rgba(0, 0, 0, 0.25));
+  border-radius: 15px;
+  margin: 1.5vw auto;
+}
+
+.detail_tour_setting__tourplace span {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 2.3vw;
+  color: #1c4d63;
+}
+
+.detail_setting_tour {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail_tour_setting_rating {
+  display: flex;
+  align-items: center;
+}
+
+.data_fly {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 1.5vw;
+  color: #1c4d63;
+}
+
+.city--city {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.4vw;
+  color: #1c4d63;
+}
+
+.detail_tour_setting_rating_192 {
+  font-size: 1.5vw;
+  letter-spacing: 0.05em;
+  color: rgba(175, 91, 86, 0.5);
+}
+
+.tour_setting_data_start_airplane {
+  background-image: url("../../../img/airplane.png");
+  background-size: cover;
+  width: 3vw;
+  height: 3vw;
+  transform: rotate(1.88deg);
+}
+
+.tour_setting_data_end_airplane {
+  background-image: url("../../../img/airplane.png");
+  background-size: cover;
+  width: 3vw;
+  height: 3vw;
+  transform: rotate(120.88deg);
+}
+
+.arrow-right {
+  background-image: url("../../../img/arrow-right.png");
+  background-size: cover;
+  width: 4vw;
+  height: 2vw;
+}
+
+.tour_setting_data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tour_setting_params {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 0 0;
+}
+.tour_setting__set .o div {
+  background-image: url("../../../img/Moon.png");
+  background-size: cover;
+  width: 2vw;
+  height: 2vw;
+}
+.tour_setting__set .b div {
+  background-image: url("../../../img/people.png");
+  background-size: cover;
+  width: 2vw;
+  height: 2vw;
+}
+.tour_setting__set .c div {
+  background-image: url("../../../img/directions_bus.png");
+  background-size: cover;
+  width: 2vw;
+  height: 2vw;
+}
+.tour_setting__set .d div {
+  background-image: url("../../../img/card-tick.png");
+  background-size: cover;
+  width: 2vw;
+  height: 2vw;
+}
+
+.tour_setting__set .w {
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px;
+}
+.tour_setting__set .w span {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.4vw;
+  color: #1c4d63;
+  margin: 0 0 0 8px;
+}
+.duo-flex {
+  display: flex;
+}
+
+.tour_discription {
+  margin: 3vw 0 0;
+  width: 23vw;
+}
+.tour_discription p {
+  font-weight: 400;
+  font-size: 1vw;
+  letter-spacing: 0.02em;
+  color: #1c4d63;
+}
+
+/*
+ /
+ /
+ /
+ /
+ /
+ /
+*/
+
+.detail_midIMG {
+  background-image: url("../../../img/kisspng-cloud-chinoiserie-mountain-painting-effect-of-chinese-feng-mountain-5a8a26dce48400\ 1.png");
+  background-size: cover;
+  width: 100%;
+  height: 90vw;
+}
+
+.detail_hotel {
+  display: flex;
+  align-items: center;
+  margin-top: 19px;
+}
+.detail_hotel span {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1.4vw;
+  color: #1c4d63;
+}
+.detail_hotel div {
+  background-image: url("../../../img/location.png");
+  background-size: cover;
+  width: 2vw;
+  height: 2vw;
+  margin-right: 7px;
+}
+.hotel_discription {
+  margin: 5vw 0 4vw;
+  width: 25vw;
+
+  font-weight: 400;
+  font-size: 1vw;
+  letter-spacing: 0.02em;
+  color: #1c4d63;
+}
+
+.tour_hotel_images {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 47%;
+}
+
+.image_left {
+  background-image: url("../../../img/image\ 314.png");
+  background-size: cover;
+  width: 12vw;
+  height: 19.5vw;
+  border-radius: 12px;
+  filter: drop-shadow(15px 15px 20px rgba(0, 0, 0, 0.25));
+}
+.image_center {
+  background-image: url("../../../img/image\ 310.png");
+  background-size: cover;
+  width: 13vw;
+  height: 21.5vw;
+  border-radius: 12px;
+  filter: drop-shadow(15px 15px 20px rgba(0, 0, 0, 0.25));
+}
+.image_right {
+  background-image: url("../../../img/image\ 312.png");
+  background-size: cover;
+  width: 12vw;
+  height: 19.5vw;
+  border-radius: 12px;
+  filter: drop-shadow(15px 15px 20px rgba(0, 0, 0, 0.25));
+}
+
+.tour_doing {
+  margin: 12vw 0 0;
+}
+.span {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 2vw;
+  color: #1c4d63;
+}
+.doing_blockGL {
+  margin: 4vw 0 0;
+}
+.doing_blockGL div {
+  display: flex;
+  justify-content: center;
+}
+.doing_blocks {
+  position: relative;
+  width: 15vw;
+  height: 14vw;
+
+  border: 3px solid #1c4d63;
+  border-radius: 15px;
+  margin: 1vw 3vw;
+}
+.doing_blocks__inside {
+  position: absolute;
+  left: 0;
+  width: 35%;
+  height: 30%;
+  border-radius: 8px 0 1vw 0;
+  background-color: #1c4d63;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.doing_blocks__inside div {
+  background-image: url("../../../img/tick-square.png");
+  background-size: cover;
+  width: 3vw;
+  height: 3vw;
+}
+
+.doing_full-schedule {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 1.6vw;
+  color: #ffffff;
+
+  width: 20vw;
+  height: 6vw;
+  background: #1c4d63;
+  border: 0;
+  backdrop-filter: blur(2px);
+  border-radius: 0.8vw;
+
+  /* margin: 50px 0 20px; */
+}
+.doing_full_block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 4vw;
+}
+.doing_full_block span {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.4vw;
+  color: #1c4d63;
+}
+.other {
+  margin: 4vw 0 3.4vw;
+}
+.otherspan {
+  margin: 0 0 40px;
+}
+
+.other_block-center {
+  width: 35vw;
+  height: 18vw;
+  background: #1c4d63;
+  border-radius: 1vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 15px;
+}
+.other_block-left {
+  width: 35vw;
+  height: 18vw;
+  background: #1c4c639a;
+  border-radius: 1vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.other_block-right {
+  width: 35vw;
+  height: 18vw;
+  background: #1c4c639a;
+  border-radius: 1vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.other_block-p {
+  width: 80%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1vw;
+  color: #ffffff;
+}
+.email {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1vw;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  bottom: 2vw;
+  right: 2vw;
+}
+.kovichki {
+  background-image: url("../../../img/“.png");
+  background-size: cover;
+  width: 2.2vw;
+  height: 1.8vw;
+  position: absolute;
+  top: 1.6vw;
+  left: 1.5vw;
+}
+.kovichkiR {
+  background-image: url("../../../img/“.png");
+  background-size: cover;
+  width: 2.2vw;
+  height: 1.8vw;
+  transform: rotate(180deg);
+  position: absolute;
+  bottom: 3.5vw;
+  right: 1.5vw;
+}
+.other_blockGL {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5vw 0;
+}
+
+.write_comment {
+  width: 70vw;
+  height: 13vw;
+  border: 2.5px solid #1c4d63;
+  border-radius: 0 0 1.2vw 1.2vw;
+
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.6vw;
+  color: #1c4d63;
+}
+.comment_rating-email {
+  width: 70.3vw;
+  height: 3vw;
+  border: 2.5px solid #1c4d63;
+  border-bottom: 0;
+  border-radius: 1.2vw 1.2vw 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.comment_email {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.4vw;
+  text-align: center;
+  color: #1c4d63;
+}
+.detail_mid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment_post {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 2vw;
+  color: #ffffff;
+
+  width: 12.5vw;
+  height: 4.6vw;
+  background: #1c4d63;
+  border: 0;
+  backdrop-filter: blur(2px);
+  border-radius: 0.6vw;
+
+  margin: 2vw 0;
+}
+.wwld {
+  margin: 0 0 10vw;
+}
+.rating {
+  width: 10vw;
+  height: 4vw;
+}
+
+@media (max-width: 760px) {
+  .detail_setting_tour {
+    justify-content: space-around;
+  }
+  .detail_mid {
+    margin: 5vw 0 0;
+    justify-content: space-around;
+  }
+  .detail_midIMG {
+    height: 95vw;
+  }
+}
+
+@media (max-width: 680px) {
+  .detail_mid {
+    margin: 5vw 0 0;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 580px) {
+  .detail_mid {
+    margin: 36vw 0 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .detail_setting_tour {
+    margin: 2vw 0 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .detail_midIMG {
+    height: 120vw;
+  }
+  .detail_tourIMG {
+    border-radius: 10px;
+    margin-bottom: 5vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .detail_mid {
+    margin: 40vw 0 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .detail_midIMG {
+    height: 125vw;
+  }
+}

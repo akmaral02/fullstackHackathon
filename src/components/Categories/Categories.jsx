@@ -30,8 +30,8 @@ const Categories = () => {
               className="categories_card beach B_T"
               onClick={() => navigate("/categories/beaches")}
             >
-              <h6>BEACHES</h6>
               <div></div>
+              <span>BEACHES</span>
             </div>
 
             <div
@@ -48,15 +48,15 @@ const Categories = () => {
               onClick={() => navigate("/category/desert")}
             >
               <div></div>
-              <h6>DESERT</h6>
+              <span>DESERT</span>
             </div>
 
             <div
               className="categories_card mountains"
               onClick={() => navigate("/category/mountains")}
             >
-              <h6>MOUNTAINS</h6>
               <div></div>
+              <span>MOUNTAINS</span>
             </div>
 
             <div
@@ -64,7 +64,7 @@ const Categories = () => {
               onClick={() => navigate("/category/skiing")}
             >
               <div></div>
-              <h6>SKIING</h6>
+              <span>SKIING</span>
             </div>
 
             <div
@@ -80,8 +80,8 @@ const Categories = () => {
               className="categories_card tropic B_T"
               onClick={() => navigate("/category/tropic")}
             >
-              <h6>TROPIC</h6>
               <div></div>
+              <span>TROPIC</span>
             </div>
             {/*  */}
           </div>

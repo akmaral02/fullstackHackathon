@@ -183,13 +183,12 @@
 
 .tour_card__card_btn {
   width: 87%;
-  margin-top: 20px;
-  height: 60px;
+  margin: 1vw 1.5vw;
+  height: 14%;
   border: 2px solid white;
   background-color: transparent;
-  border-radius: 15px;
-
+  border-radius: 0.9vw;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.8vw;
   color: #ffffff;
 }
