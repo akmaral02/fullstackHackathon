@@ -5,16 +5,19 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import ToursContextProvider from "./contexts/ToursContextProvider";
 import AuthContextProvider from "./contexts/AuthContextProvider";
+import MyToursContextProvider from "./contexts/MyToursContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ToursContextProvider>
-        <AuthContextProvider>
-          <App />
-        </AuthContextProvider>
-      </ToursContextProvider>
+      <MyToursContextProvider>
+        <ToursContextProvider>
+          <AuthContextProvider>
+            <App />
+          </AuthContextProvider>
+        </ToursContextProvider>
+      </MyToursContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

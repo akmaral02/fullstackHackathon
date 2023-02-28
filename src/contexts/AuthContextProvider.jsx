@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_AUTH } from "../helpers/consts";
+import { getToken } from "../helpers/function";
 
 const authContext = createContext();
 export const useAuth = () => useContext(authContext);
@@ -10,8 +11,12 @@ const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
   const navigate = useNavigate();
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
   //! FUN-ON FOR REGISTER
 
   const register = async (formData) => {
@@ -22,11 +27,9 @@ const AuthContextProvider = ({ children }) => {
       form.append("password_confirm", formData.password_confirm);
       const res = await axios.post(`${API_AUTH}register/`, formData);
       setSuccess(res.data);
-      console.log(res.data);
-      // navigate("/login"); //! над что то придумать
+      refreshPage();
     } catch (error) {
-      console.log(error);
-      setError(error);
+      setError(error.response.data.email[0]);
     }
   };
 
@@ -41,14 +44,14 @@ const AuthContextProvider = ({ children }) => {
       form.append("password", formData.password);
       form.append("password_confirm", formData.password_confirm);
       const res = await axios.post(`${API_AUTH}login/`, formData);
-      console.log(res.data);
       localStorage.setItem("token", JSON.stringify(res.data));
       localStorage.setItem("username", email);
       setUser(email);
       navigate("/");
+      // setSuccess("Welcome to Journey");
     } catch (error) {
-      console.log(error);
-      setError(error);
+      // setError(error.response.data.detail);
+      setError("Не правильный пароль или email");
     }
   };
 
@@ -69,7 +72,6 @@ const AuthContextProvider = ({ children }) => {
       let user = localStorage.getItem("username");
       setUser(user);
     } catch (error) {
-      // console.log(error);
       setError(error.response.data.email[0]);
     }
   };
@@ -84,14 +86,15 @@ const AuthContextProvider = ({ children }) => {
     }
   }, []);
 
-  //! dont know do it on local storage cus in back we have this function
+  //*
 
   //! FUN-ON FOR LOGOUT
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     setUser("");
-    navigate("/login");
+    navigate("/auth");
   };
 
   //? END FUN-ON FOR LOGOUT
@@ -101,8 +104,10 @@ const AuthContextProvider = ({ children }) => {
   const forgotPassword = async (email) => {
     try {
       let res = await axios.post(`${API_AUTH}forgot_password/`, email);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
+      setError(error);
     }
   };
 
@@ -116,9 +121,11 @@ const AuthContextProvider = ({ children }) => {
         `${API_AUTH}forgot_password_complete/`,
         complete
       );
-      navigate("/login");
+      console.log(res.data);
+      navigate("/auth");
     } catch (error) {
       console.log(error);
+      setError(error);
     }
   };
 
@@ -126,19 +133,57 @@ const AuthContextProvider = ({ children }) => {
 
   //! FUN-ON FOR CHANGE TO NEW PASSWORD
 
-  // const changeOldPassword = async (changedPassword) => {
+  const changeOldPassword = async (changedPassword) => {
+    try {
+      let config = getToken();
+      let res = await axios.post(
+        `${API_AUTH}change_password/`,
+        changedPassword,
+        config
+      );
+      console.log(res.data);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    }
+  };
+
+  //? END FUN-ON FOR CHANGE TO NEW PASSWORD
+
+  //! FUNC-ON FOR DELETE ACCOUNT
+
+  const deleteAccount = async () => {
+    try {
+      let config = getToken();
+      let res = await axios.delete(`${API_AUTH}delete/`, config);
+      console.log(res.data);
+      logout();
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    }
+  };
+
+  //? END FUNC-ON FOR DELETE ACCOUNT
+
+  //! FUNC-ON FOR change email
+
+  // const updateEmail = async (changedEmail) => {
   //   try {
-  //     let res = await axios.post(
-  //       `${API_AUTH}change_passsword/`,
-  //       changedPassword
-  //     );
-  //     navigate("/");
+  //     let config = getToken();
+  //     let res = await axios.patch(`${API_AUTH}update/`, changedEmail, config);
+  //     localStorage.setItem("username", changedEmail);
+  //     setUser(changedEmail);
+  //     // navigate(login);
+  //     login();
+  //     console.log(res.data);
   //   } catch (error) {
+  //     console.log(error);
   //     setError(error);
   //   }
   // };
-
-  //? END FUN-ON FOR CHANGE TO NEW PASSWORD
+  //? END FUNC-ON FOR change email
 
   let value = {
     error,
@@ -149,7 +194,9 @@ const AuthContextProvider = ({ children }) => {
     forgotPassword,
     forgotPasswordComplete,
     success,
-    // changeOldPassword,
+    changeOldPassword,
+    deleteAccount,
+    // updateEmail,
   };
   return <authContext.Provider value={value}>{children}</authContext.Provider>;
 };

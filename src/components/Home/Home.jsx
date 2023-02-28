@@ -12,6 +12,7 @@ const Home = () => {
     <>
       <Box className="home">
         <video className="video-slide" src={bg} autoPlay muted loop></video>
+
         <Box className="content">
           <h1>
             FLY HIGH
@@ -23,7 +24,9 @@ const Home = () => {
             temporibus iure odit, similique fugiat corrupti debitis labore cum?
             Omnis, non?
           </Typography>
-          <a href="#">Book Travel</a>
+          <a class="btn" href="#">
+            <span> Book Tour</span>
+          </a>
         </Box>
         <Box className="media-icons">
           <IconButton
@@ -115,6 +118,23 @@ const Home = () => {
         >
           <span className="home_center_head__span">SERVICES</span>
 
+          {/* new  */}
+          {/* <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <Typography className="romb_text" variant="">
+                  Shooting
+                </Typography>
+              </div>
+              <div class="flip-card-back">
+                <Typography className="romb_text" variant="" fontSize={15}>
+                  DSKLCSLDKFNCSLDK
+                </Typography>
+              </div>
+            </div>
+          </div> */}
+          {/* new  */}
+
           <div>
             <Grid
               container
@@ -136,32 +156,44 @@ const Home = () => {
                 }}
               >
                 <Grid className="romb_block" item lg={3} margin="0 15px 0 0">
-                  <Box className="romb">
-                    <Box
-                      className="romb_line"
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Typography className="romb_text" variant="">
-                        Shooting
-                      </Typography>
-                    </Box>
-                  </Box>
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <Typography className="romb_text" variant="">
+                          Shooting
+                        </Typography>
+                      </div>
+                      <div class="flip-card-back">
+                        <Typography
+                          className="romb_text"
+                          variant=""
+                          fontSize={15}
+                        >
+                          taking photos with a professional photographer
+                        </Typography>
+                      </div>
+                    </div>
+                  </div>
                 </Grid>
                 <Grid item lg={3} margin="0 15px 0 0">
-                  <Box className="romb">
-                    <Box
-                      className="romb_line"
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Typography className="romb_text" variant="">
-                        Excursion
-                      </Typography>
-                    </Box>
-                  </Box>
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <Typography className="romb_text" variant="">
+                          Excursion
+                        </Typography>
+                      </div>
+                      <div class="flip-card-back">
+                        <Typography
+                          className="romb_text"
+                          variant=""
+                          fontSize={15}
+                        >
+                          To unique places from our team
+                        </Typography>
+                      </div>
+                    </div>
+                  </div>
                 </Grid>
               </Grid>
               <Grid
@@ -184,46 +216,64 @@ const Home = () => {
                 }}
               >
                 <Grid item lg={4} margin="0 15px 0 0">
-                  <Box className="romb">
-                    <Box
-                      className="romb_line"
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Typography className="romb_text" variant="">
-                        Residence
-                      </Typography>
-                    </Box>
-                  </Box>
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <Typography className="romb_text" variant="">
+                          Residence
+                        </Typography>
+                      </div>
+                      <div class="flip-card-back">
+                        <Typography
+                          className="romb_text"
+                          variant=""
+                          fontSize={15}
+                        >
+                          The best hotels in the city
+                        </Typography>
+                      </div>
+                    </div>
+                  </div>
                 </Grid>
                 <Grid item lg={4} margin="0 15px 0 0">
-                  <Box className="romb">
-                    <Box
-                      className="romb_line"
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Typography className="romb_text" variant="">
-                        Food
-                      </Typography>
-                    </Box>
-                  </Box>
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <Typography className="romb_text" variant="">
+                          Food
+                        </Typography>
+                      </div>
+                      <div class="flip-card-back">
+                        <Typography
+                          className="romb_text"
+                          variant=""
+                          fontSize={15}
+                        >
+                          Breakfast, lunch, dinner and any drinks
+                        </Typography>
+                      </div>
+                    </div>
+                  </div>
                 </Grid>
                 <Grid item lg={4} margin="0 15px 0 0">
-                  <Box className="romb">
-                    <Box
-                      className="romb_line"
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Typography className="romb_text" variant="">
-                        Transport
-                      </Typography>
-                    </Box>
-                  </Box>
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <Typography className="romb_text" variant="">
+                          Transport
+                        </Typography>
+                      </div>
+                      <div class="flip-card-back">
+                        <Typography
+                          className="romb_text"
+                          variant=""
+                          fontSize={15}
+                        >
+                          Save and comfortable transportation
+                        </Typography>
+                      </div>
+                    </div>
+                  </div>
                 </Grid>
               </Grid>
             </Grid>

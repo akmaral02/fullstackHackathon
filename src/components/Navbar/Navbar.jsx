@@ -4,7 +4,6 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
-  ImageList,
   InputBase,
   Typography,
   IconButton,
@@ -15,16 +14,26 @@ import {
   MenuItem,
 } from "@mui/material";
 import Logo from "../../images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Navbar.css";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import CallIcon from "@mui/icons-material/Call";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import Image from "mui-image";
+import { useAuth } from "../../contexts/AuthContextProvider";
+import LogoutIcon from "@mui/icons-material/Logout";
 
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { ICON_COLOR, MAIN_COLOR } from "../../helpers/consts";
+import { useTour } from "../../contexts/ToursContextProvider";
+import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-
+  // borderRadius: theme.shape.borderRadius,
+  // backgroundColor: alpha(theme.palette.common.white, 0.15),
+  // "&:hover": {
+  //   backgroundColor: alpha(theme.palette.common.white, 0.25),
+  // },
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: "100%",
@@ -32,6 +41,7 @@ const Search = styled("div")(({ theme }) => ({
     marginLeft: theme.spacing(3),
     width: "auto",
   },
+  // color: `${MAIN_COLOR}`,
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -42,10 +52,10 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  // color: `${MAIN_COLOR}`,
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -54,10 +64,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up("md")]: {
       width: "20ch",
     },
+    // color: `${MAIN_COLOR}`,
   },
 }));
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+  const { search, setSearch } = useTour();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -85,7 +99,6 @@ export default function Navbar() {
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      а
       anchorOrigin={{
         vertical: "top",
         horizontal: "right",
@@ -98,14 +111,22 @@ export default function Navbar() {
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
-      sx={{ backgroundColor: "transparent" }}
     >
-      <Link className="menulink" to={"/auth"}>
-        <MenuItem onClick={handleMenuClose}>Login</MenuItem>
-      </Link>
-      <Link className="menulink" to={"/mytours"}>
-        <MenuItem onClick={handleMenuClose}>My Tours</MenuItem>
-      </Link>
+      <MenuItem onClick={handleMenuClose}>
+        <Link className="menulink" to="/auth">
+          LOGIN
+        </Link>
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link className="menulink" to="/mytours">
+          MY TOURS
+        </Link>
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link className="menulink" to="/contactus">
+          CONTACT US
+        </Link>
+      </MenuItem>
     </Menu>
   );
 
@@ -125,7 +146,7 @@ export default function Navbar() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-      sx={{ backgroundColor: "transparent" }}
+      // sx={{ backgroundColor: "transparent" }}
     >
       <Link className="menulink" to="/">
         <MenuItem className="nav">HOME</MenuItem>
@@ -133,67 +154,111 @@ export default function Navbar() {
       <Link className="menulink" to="/tours">
         <MenuItem className="nav">PACKAGES</MenuItem>
       </Link>
-      <Link className="menulink" to="/gallery">
-        <MenuItem className="nav">GALLERY</MenuItem>
+      <Link className="menulink" to="/contactus">
+        <MenuItem className="nav">CONTACT US</MenuItem>
       </Link>
       <Link className="menulink" to="/mytours">
         <MenuItem className="nav">MY TOURS</MenuItem>
       </Link>
+      {user === "admin@admin.com" ? (
+        <Link className="menulink" to="/admin">
+          <MenuItem className="nav">ADMIN</MenuItem>
+        </Link>
+      ) : null}
     </Menu>
   );
 
   return (
-    <div className="cont">
-      <Box sx={{ flexGrow: 1 }}>
+    <div>
+      <Box
+        sx={{
+          flexGrow: 12,
+          // marginBottom: 15,
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <AppBar
-          position="static"
+          position="fixed"
           sx={{
-            background: "#5E4040",
-            boxShadow: "inset 0px -10px 100px rgba(255, 255, 255, 0.80)",
+            // background: "#ffffff",
+            // opacity: 50,
+            // background: "rgba(255, 255, 255, 0.10)",
+            background: "rgba(0, 0, 0, 0.20)",
+            backdropFilter: "blur(100px)",
+            // boxShadow: "inset 0px -10px 100px rgba(255, 255, 255, 0.80)",
           }}
         >
           <Toolbar>
-            <IconButton
-              onClick={handleMobileMenuOpen}
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2, display: { xs: "flex", md: "none", lg: "none" } }}
+            <Box
+              flexGrow={8}
+              display="flex"
+              alignContent="center"
+              // backgroundColor="red"
             >
-              <MenuIcon />
-            </IconButton>
-            <Box flexGrow={3}>
-              <Link to={"/"}>
-                <Image src={Logo} height={48} width={89} />
-              </Link>
-            </Box>
-            <Box flexGrow={15} alignContent={"center"}>
-              <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
+              <IconButton
+                onClick={handleMobileMenuOpen}
+                // size="large"
+                edge="start"
+                aria-label="open drawer"
                 sx={{
                   mr: 2,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "Montserrat",
-                  fontWeight: 800,
-                  fontSize: 25,
-                  letterSpacing: ".05rem",
-                  color: "inherit",
-                  textDecoration: "none",
+                  display: { xs: "flex", md: "none", lg: "none", sm: "flex" },
                 }}
+                color="inherit"
               >
-                SKY HIGH
-              </Typography>
+                <MenuIcon />
+              </IconButton>
+
+              <Link to={"/"}>
+                <Box
+                  alignContent="center"
+                  // backgroundColor="black"
+                  component="img"
+                  sx={{
+                    height: 35,
+                    display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
+                  }}
+                  alt="logo"
+                  src={Logo}
+                ></Box>
+              </Link>
+              <Box
+                display={"flex"}
+                alignItems="center"
+                justifyContent={"center"}
+              >
+                <Typography
+                  // color={`${ICON_COLOR}`}
+                  sx={{
+                    display: {
+                      sm: "none",
+                      xs: "none",
+                      md: "block",
+                      lg: "block",
+                    },
+                    fontFamily: "Montserrat",
+                    fontWeight: { lg: 800, md: 800, sm: 400 },
+                    variant: { md: "h6", lg: "h6", sm: "h4" },
+                    fontSize: { md: 25, lg: 25, sm: 20, xs: 16 },
+                    letterSpacing: ".05rem",
+                    color: "inherit",
+                    textDecoration: "none",
+                  }}
+                >
+                  SKY HIGH
+                </Typography>
+              </Box>
             </Box>
             <Box
+              flexGrow={8}
               sx={{
-                flexGrow: 15,
-                columnGap: 2,
-                display: { lg: "flex", md: "flex", sm: "none", xs: "none" },
+                display: "flex",
                 justifyContent: "center",
+                columnGap: { md: 1.5, sm: 0.5, lg: 2 },
+                display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
+                // color: `${MAIN_COLOR}`,
+                // color: "#284853",
               }}
             >
               <Link className="links" to="/">
@@ -208,55 +273,124 @@ export default function Navbar() {
               <Link className="links" to="/mytours">
                 <MenuItem className="nav">MY TOURS</MenuItem>
               </Link>
-            </Box>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-            <Box sx={{ flexGrow: 1 }} />
-            <Box>
-              <IconButton size="large" edge="end" color="inherit">
-                <CallIcon />
-              </IconButton>
+              {user === "admin@admin.com" ? (
+                <Link className="links" to="/admin">
+                  <MenuItem className="nav">ADMIN</MenuItem>
+                </Link>
+              ) : null}
             </Box>
 
-            <Box sx={{ display: { xs: "none", md: "none", lg: "flex" } }}>
-              <Link className="links" to={"/mytours"}>
-                <IconButton size="large" edge="end" color="inherit">
-                  <ShoppingBagOutlinedIcon />
-                </IconButton>
-              </Link>
-            </Box>
             <Box
+              flexGrow={1}
               sx={{
-                display: { xs: "none", md: "none", lg: "flex" },
+                display: "flex",
+                alignItems: "center",
               }}
             >
-              {
-                <Link className="links" to={"/auth"}>
-                  {" "}
-                  {/* //! before was auth */}
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
+                  sx={{
+                    border: 0.1,
+                    color: "#EFEFEF",
+                    borderRadius: 50,
+                    ":hover": {
+                      // color: `${ICON_COLOR}`,
+                      color: "white",
+                      transition: "1s",
+                      boxShadow: "5px 5px 10px #ccc",
+                    },
+                  }}
+                />
+              </Search>
+
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <Link className="links" to={"/contactus"}>
                   <IconButton
                     size="large"
                     edge="end"
                     aria-label="account of current user"
+                    aria-haspopup="true"
                     color="inherit"
                   >
-                    <PermIdentityOutlinedIcon />
+                    <CallIcon />
                   </IconButton>
                 </Link>
-              }
+              </Box>
+
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <Link className="links" to={"/mytours"}>
+                  <IconButton
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-haspopup="true"
+                    color="inherit"
+                  >
+                    <ShoppingBagOutlinedIcon />
+                  </IconButton>
+                </Link>
+              </Box>
+
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  alignItems: "center",
+                }}
+              >
+                {user ? (
+                  <>
+                    <IconButton
+                      size="large"
+                      edge="end"
+                      aria-label="account of current user"
+                      aria-haspopup="true"
+                      onClick={logout}
+                      color="inherit"
+                    >
+                      <LogoutIcon />
+                    </IconButton>
+                    <Link className="links" to={"/profile"}>
+                      <IconButton
+                        size="large"
+                        edge="end"
+                        aria-label="account of current user"
+                        color="inherit"
+                      >
+                        <ManageAccountsOutlinedIcon />
+                      </IconButton>
+                    </Link>
+                  </>
+                ) : (
+                  <Link className="links" to={"/auth"}>
+                    <IconButton
+                      size="large"
+                      edge="end"
+                      aria-label="account of current user"
+                      color="inherit"
+
+                      // aria-controls={menuId}
+                      // aria-haspopup="true"
+                    >
+                      <PermIdentityOutlinedIcon />
+                    </IconButton>
+                  </Link>
+                )}
+              </Box>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none", sm: "flex" } }}>
               <IconButton
                 size="large"
                 aria-label="show more"
-                aria-controls={mobileMenuId}
+                aria-controls={menuId}
                 aria-haspopup="true"
                 onClick={handleProfileMenuOpen}
                 color="inherit"
